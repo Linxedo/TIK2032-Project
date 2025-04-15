@@ -4,69 +4,76 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Website - Beranda</title>
-    
-    <!-- Link CSS -->
-    <link rel="stylesheet" href="styles.css">
+
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
     <header>
-        <nav>
-            <div class="logo">Steve</div>
-            <ul class="nav-links">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="gallery.html">Gallery</a></li>
-                <li><a href="blog.html">Blog</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-        </nav>
+        <div class="container">
+            <div class="logo"><b>Steve</b></div>
+            <nav>
+                <ul>
+                    <li><a href="index.html" class="active">Beranda</a></li>
+                    <li><a href="gallery.html">Galeri</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="contact.html">Kontak</a></li>
+                </ul>
+            </nav>
+        </div>
     </header>
-    
+
     <section class="hero">
-        <h1>Welcome to My Website</h1>
-        <p>Under development, stay tuned!</p>
+        <div class="container">
+            <h1>Selamat Datang</h1>
+            <p class="tagline">Situs web dalam pengembangan.</p>
+            </div>
     </section>
 
-    <section class="content">
-        <h2>Content</h2>
-        <div class="cards">
-            <div class="card">
-                <img src="image1.jpg" alt="Gallery">
-                <h3>Galeri Foto</h3>
-                <p>Koleksi foto-foto terbaik dari berbagai kategori yang kami sajikan khusus untuk Anda.</p>
-                <a href="gallery.html">Lihat Galeri →</a>
-            </div>
-            
-            <div class="card">
-                <img src="image2.jpg" alt="Blog">
-                <h3>Artikel Blog</h3>
-                <p>Berbagai artikel menarik dengan topik yang informatif dan bermanfaat.</p>
-                <a href="blog.html">Baca Artikel →</a>
-            </div>
-            
-            <div class="card">
-                <img src="image3.jpg" alt="Contact">
-                <h3>Hubungi Kami</h3>
-                <p>Punya pertanyaan atau ingin berkolaborasi? Jangan ragu untuk menghubungi kami.</p>
-                <a href="contact.html">Kontak →</a>
+    <section class="content-section">
+        <div class="container">
+            <h2>Konten Utama</h2>
+            <div class="card-grid">
+                <div class="card">
+                    <img src="image1.jpg" alt="Galeri">
+                    <h3>Galeri Foto</h3>
+                    <p>Koleksi foto-foto terbaik dari berbagai kategori yang kami sajikan khusus untuk Anda.</p>
+                    <a href="gallery.html" class="button">Lihat Galeri →</a>
+                </div>
+                <div class="card">
+                    <img src="image2.jpg" alt="Blog">
+                    <h3>Artikel Blog</h3>
+                    <p>Berbagai artikel menarik dengan topik yang informatif dan bermanfaat.</p>
+                    <a href="blog.html" class="button">Baca Artikel →</a>
+                </div>
+                <div class="card">
+                    <img src="image3.jpg" alt="Kontak">
+                    <h3>Hubungi Kami</h3>
+                    <p>Punya pertanyaan atau ingin berkolaborasi? Jangan ragu untuk menghubungi kami.</p>
+                    <a href="contact.html" class="button">Kontak →</a>
+                </div>
             </div>
         </div>
     </section>
-    
-    <section class="about">
-        <h2>Tentang Website Ini</h2>
-        <p>
-            Website ini dibuat sebagai portofolio dan media berbagi informasi. 
-            Menyajikan berbagai konten menarik mulai dari fotografi, teknologi, 
-            hingga tips dan trik sehari-hari.
-        </p>
+
+    <section class="about-section">
+        <div class="container">
+            <h2>Tentang Website Ini</h2>
+            <p>
+                Website ini dibuat sebagai portofolio dan media berbagi informasi.
+                Menyajikan berbagai konten menarik mulai dari fotografi, teknologi,
+                hingga tips dan trik sehari-hari. Kami berkomitmen untuk terus mengembangkan
+                dan menyajikan konten yang bermanfaat bagi Anda.
+            </p>
+        </div>
     </section>
 
-    <footer class="footer">
-        <p>&copy; Steve 2025</p>
+    <footer>
+        <div class="container">
+            <p>&copy; Steve 2025</p>
+        </div>
     </footer>
 
-    <!-- Link JS -->
-    <script src="scripts.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
