@@ -1,129 +1,115 @@
-/* index.css */
+/* General styling */
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-    margin: 0;
-    padding: 0;
-    padding-bottom: 50px; /* Space for fixed footer */
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh; /* Ensure body covers full viewport */
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f5f5f5;
+  color: #333;
 }
 
-table {
-    width: 80%; /* Match the width in HTML */
-    margin: 20px auto; /* Center the tables with some top/bottom margin */
-    border-collapse: collapse; /* Optional: Remove default table borders */
-    background-color: #fff; /* Optional: White background for tables */
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05); /* Optional: Subtle shadow */
-    border-radius: 8px; /* Optional: Rounded corners for tables */
-}
-
-td {
-    padding: 15px;
-    text-align: center; /* Default text alignment for cells */
-}
-
-td[align="right"] {
-    text-align: right; /* Override for right-aligned navigation */
-}
-
-b {
-    font-size: 24px;
-    color: #333;
-    font-weight: bold; /* Ensure bold text is actually bold */
+/* Header styling */
+header {
+  background-color: #f8f8f8;
+  padding: 10px 0;
+  border-bottom: 1px solid #e0e0e0;
 }
 
 a {
-    text-decoration: none;
-    color: #007BFF;
-    font-size: 16px;
-    transition: color 0.3s ease; /* Smooth hover effect */
+  color: #0066cc;
+  text-decoration: none;
 }
 
-a:hover {
-    color: #0056b3;
+/* Main sections */
+.welcome {
+  text-align: center;
+  margin: 20px 0;
 }
 
-h1, h2, h3 {
-    color: #333;
-    text-align: center; /* Center headings */
-    margin-bottom: 15px;
+.welcome h1 {
+  font-size: 24px;
+  margin-bottom: 10px;
 }
 
-h1 {
-    font-size: 2.5em;
-    margin-top: 20px;
+/* Content section */
+.content {
+  margin: 30px 0;
 }
 
-h2 {
-    font-size: 2em;
+.content h2 {
+  text-align: center;
+  font-size: 20px;
+  margin-bottom: 20px;
 }
 
-h3 {
-    font-size: 1.4em;
+/* Gallery, Blog, Contact sections */
+.content-columns {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 auto;
+  max-width: 1200px;
 }
 
-p {
-    color: #555;
-    font-size: 1em;
-    line-height: 1.6; /* Improve readability */
-    text-align: center;
+.column {
+  background-color: white;
+  border-radius: 5px;
+  padding: 20px;
+  width: 30%;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
 }
 
-/* Styling for the image containers */
-td[width="33%"] {
-    padding: 20px;
+.column h3 {
+  margin-top: 0;
+  text-align: center;
 }
 
-td[width="33%"] img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 8px;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
-    transition: transform 0.3s ease-in-out;
+.column img {
+  display: block;
+  margin: 0 auto;
 }
 
-td[width="33%"] img:hover {
-    transform: scale(1.05); /* Subtle zoom on hover */
+.column p {
+  font-size: 14px;
+  line-height: 1.5;
 }
 
-.footer {
-    background-color: #333;
-    color: white;
-    padding: 15px;
-    text-align: center;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
+/* About section */
+.about {
+  background-color: white;
+  border-radius: 5px;
+  padding: 20px;
+  margin: 30px auto;
+  max-width: 1200px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
 }
 
-/* Responsive Design */
-@media (max-width: 768px) {
-    table {
-        width: 95%; /* Make tables wider on smaller screens */
-        margin: 10px auto;
-    }
+.about h2 {
+  text-align: center;
+  margin-top: 0;
+}
 
-    td {
-        padding: 10px;
-        display: block; /* Stack table cells vertically */
-        width: 100%;
-        box-sizing: border-box; /* Prevent padding from increasing width */
-        margin-bottom: 10px;
-        text-align: center; /* Center text in stacked cells */
-    }
+.about p {
+  line-height: 1.5;
+}
 
-    td[align="right"] {
-        text-align: center; /* Center navigation on smaller screens */
-    }
+/* Footer */
+footer {
+  text-align: center;
+  padding: 10px;
+  background-color: #333;
+  color: white;
+  font-size: 12px;
+}
 
-    td[width="33%"] {
-        width: 100%; /* Make content cells full width */
-    }
+/* Links */
+.read-more {
+  text-align: right;
+  margin-top: 10px;
+}
 
-    .footer {
-        padding: 10px;
-        font-size: 0.9em;
-    }
+/* Development notice */
+.in-development {
+  text-align: center;
+  color: #666;
+  font-style: italic;
+  margin: 15px 0;
 }
