@@ -1,40 +1,24 @@
-// Smooth Scroll untuk navigasi ke bagian yang dituju
-document.querySelectorAll('a').forEach(anchor => {
+document.addEventListener('DOMContentLoaded', () => {
+  console.log("Website loaded successfully!");
+
+  // Smooth scrolling untuk tautan yang menuju ke id di halaman
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-
-        document.querySelector(this.getAttribute('href')).scrollIntoView({
-            behavior: 'smooth'
-        });
+      e.preventDefault();
+      const targetElement = document.querySelector(this.getAttribute('href'));
+      if (targetElement) {
+        targetElement.scrollIntoView({ behavior: 'smooth' });
+      }
     });
+  });
+
+  // Animasi fade-in untuk elemen utama (tabel dan footer)
+  const fadeInElements = document.querySelectorAll('table, .footer');
+  fadeInElements.forEach((el, index) => {
+    el.style.opacity = 0;
+    setTimeout(() => {
+      el.style.transition = "opacity 1s ease-in-out";
+      el.style.opacity = 1;
+    }, index * 200); // Animasi bergantian untuk setiap elemen
+  });
 });
-
-// Efek animasi pada konten saat menggulir
-window.addEventListener('scroll', () => {
-    const elements = document.querySelectorAll('h1, h2, h3, p');
-    elements.forEach(element => {
-        const position = element.getBoundingClientRect();
-        
-        if (position.top < window.innerHeight && position.bottom >= 0) {
-            element.classList.add('fadeIn');
-        } else {
-            element.classList.remove('fadeIn');
-        }
-    });
-});
-
-// Menambahkan kelas CSS untuk animasi fadeIn
-document.head.insertAdjacentHTML('beforeend', `
-    <style>
-        .fadeIn {
-            opacity: 1;
-            transform: translateY(0);
-            transition: opacity 1s ease-out, transform 1s ease-out;
-        }
-
-        h1, h2, h3, p {
-            opacity: 0;
-            transform: translateY(50px);
-        }
-    </style>
-`);
