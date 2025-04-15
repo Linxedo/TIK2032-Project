@@ -1,115 +1,109 @@
-/* General styling */
+/* Reset and Base Styles */
 body {
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
   background-color: #f5f5f5;
   color: #333;
+  line-height: 1.4;
 }
 
-/* Header styling */
+/* Header Styling */
 header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
   background-color: #f8f8f8;
-  padding: 10px 0;
   border-bottom: 1px solid #e0e0e0;
 }
 
+/* Navigation Links */
 a {
   color: #0066cc;
   text-decoration: none;
 }
 
-/* Main sections */
+nav a {
+  margin-left: 10px;
+}
+
+/* Main Content Sections */
+h1, h2, h3 {
+  color: #333;
+}
+
+/* Welcome Section */
 .welcome {
   text-align: center;
   margin: 20px 0;
+  padding: 0 20px;
 }
 
-.welcome h1 {
-  font-size: 24px;
-  margin-bottom: 10px;
-}
-
-/* Content section */
+/* Content Sections */
 .content {
+  text-align: center;
   margin: 30px 0;
 }
 
-.content h2 {
-  text-align: center;
-  font-size: 20px;
-  margin-bottom: 20px;
-}
-
-/* Gallery, Blog, Contact sections */
-.content-columns {
+/* Three Column Layout */
+.columns {
   display: flex;
   justify-content: space-between;
-  margin: 0 auto;
   max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
 }
 
 .column {
-  background-color: white;
-  border-radius: 5px;
-  padding: 20px;
   width: 30%;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-}
-
-.column h3 {
-  margin-top: 0;
   text-align: center;
-}
-
-.column img {
-  display: block;
-  margin: 0 auto;
-}
-
-.column p {
-  font-size: 14px;
-  line-height: 1.5;
-}
-
-/* About section */
-.about {
   background-color: white;
   border-radius: 5px;
   padding: 20px;
-  margin: 30px auto;
-  max-width: 1200px;
   box-shadow: 0 1px 3px rgba(0,0,0,0.1);
 }
 
-.about h2 {
-  text-align: center;
-  margin-top: 0;
+/* Links within columns */
+.column a {
+  display: inline-block;
+  margin-top: 10px;
 }
 
-.about p {
-  line-height: 1.5;
+/* About Section */
+.about {
+  max-width: 1200px;
+  margin: 30px auto;
+  padding: 20px;
+  background-color: white;
+  border-radius: 5px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  text-align: center;
 }
 
 /* Footer */
 footer {
-  text-align: center;
   padding: 10px;
   background-color: #333;
   color: white;
-  font-size: 12px;
-}
-
-/* Links */
-.read-more {
-  text-align: right;
-  margin-top: 10px;
-}
-
-/* Development notice */
-.in-development {
   text-align: center;
+  font-size: 12px;
+  margin-top: 30px;
+}
+
+/* Development Notice */
+.underdevelopment {
   color: #666;
   font-style: italic;
-  margin: 15px 0;
+}
+
+/* Images */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Read More Links */
+.read-more {
+  text-align: right;
 }
