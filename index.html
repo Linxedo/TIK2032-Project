@@ -4,76 +4,94 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Website - Beranda</title>
-
-    <link rel="stylesheet" href="style.css">
+    
+    <link rel="stylesheet" href="styles.css"> <!-- Link to the external CSS file -->
 </head>
 <body>
 
-    <header>
-        <div class="container">
-            <div class="logo"><b>Steve</b></div>
-            <nav>
-                <ul>
-                    <li><a href="index.html" class="active">Beranda</a></li>
-                    <li><a href="gallery.html">Galeri</a></li>
-                    <li><a href="blog.html">Blog</a></li>
-                    <li><a href="contact.html">Kontak</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
+    <table>
+        <tr>
+            <td><b>Steve</b></td>
+            <td align="right">
+                <a href="index.html">Home</a> |
+                <a href="gallery.html">Gallery</a> |
+                <a href="blog.html">Blog</a> |
+                <a href="contact.html">Contact</a>
+            </td>
+        </tr>
+    </table>
+    
+    <table>
+        <tr>
+            <td align="center">
+                <b>Beranda</b>
+            </td>
+        </tr>
+    </table>
+    
+    <table width="80%" align="center" cellpadding="20" cellspacing="0" border="0">
+        <tr>
+            <td align="center">
+                <h1>Welcome</h1>
+                <p>Underdevelopment.</p>
+            </td>
+        </tr>
+    </table>
+    
+    <table width="80%" align="center" cellpadding="20" cellspacing="0" border="0">
+        <tr>
+            <td align="center" colspan="3">
+                <h2>Content</h2>
+            </td>
+        </tr>
+        <tr valign="top">
+            <td width="33%" align="center">
+                <img src="image1.jpg" alt="Galeri">
+                <h3>Galeri Foto</h3>
+                <p>Koleksi foto-foto terbaik dari berbagai kategori yang kami sajikan khusus untuk Anda.</p>
+                <p align="center">
+                    <a href="gallery.html">Lihat Galeri →</a>
+                </p>
+            </td>
+            
+            <td width="33%" align="center">
+                <img src="image2.jpg" alt="Blog">
+                <h3>Artikel Blog</h3>
+                <p>Berbagai artikel menarik dengan topik yang informatif dan bermanfaat.</p>
+                <p align="center">
+                    <a href="blog.html">Baca Artikel →</a>
+                </p>
+            </td>
+            
+            <td width="33%" align="center">
+                <img src="image3.jpg" alt="Kontak">
+                <h3>Hubungi Kami</h3>
+                <p>Punya pertanyaan atau ingin berkolaborasi? Jangan ragu untuk menghubungi kami.</p>
+                <p align="center">
+                    <a href="contact.html">Kontak →</a>
+                </p>
+            </td>
+        </tr>
+    </table>
+    
+    <table width="80%" align="center" cellpadding="30" cellspacing="0" border="0">
+        <tr>
+            <td align="center">
+                <h2>Tentang Website Ini</h2>
+                <p>
+                    Website ini dibuat sebagai portofolio dan media berbagi informasi. 
+                    Menyajikan berbagai konten menarik mulai dari fotografi, teknologi, 
+                    hingga tips dan trik sehari-hari.
+                </p>
+            </td>
+        </tr>
+    </table>
+    
+    <div class="footer">
+        &copy; Steve 2025
+    </div>
 
-    <section class="hero">
-        <div class="container">
-            <h1>Selamat Datang</h1>
-            <p class="tagline">Situs web dalam pengembangan.</p>
-            </div>
-    </section>
+    <script src="scripts.js"></script> <!-- Link to the external JS file -->
 
-    <section class="content-section">
-        <div class="container">
-            <h2>Konten Utama</h2>
-            <div class="card-grid">
-                <div class="card">
-                    <img src="image1.jpg" alt="Galeri">
-                    <h3>Galeri Foto</h3>
-                    <p>Koleksi foto-foto terbaik dari berbagai kategori yang kami sajikan khusus untuk Anda.</p>
-                    <a href="gallery.html" class="button">Lihat Galeri →</a>
-                </div>
-                <div class="card">
-                    <img src="image2.jpg" alt="Blog">
-                    <h3>Artikel Blog</h3>
-                    <p>Berbagai artikel menarik dengan topik yang informatif dan bermanfaat.</p>
-                    <a href="blog.html" class="button">Baca Artikel →</a>
-                </div>
-                <div class="card">
-                    <img src="image3.jpg" alt="Kontak">
-                    <h3>Hubungi Kami</h3>
-                    <p>Punya pertanyaan atau ingin berkolaborasi? Jangan ragu untuk menghubungi kami.</p>
-                    <a href="contact.html" class="button">Kontak →</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="about-section">
-        <div class="container">
-            <h2>Tentang Website Ini</h2>
-            <p>
-                Website ini dibuat sebagai portofolio dan media berbagi informasi.
-                Menyajikan berbagai konten menarik mulai dari fotografi, teknologi,
-                hingga tips dan trik sehari-hari. Kami berkomitmen untuk terus mengembangkan
-                dan menyajikan konten yang bermanfaat bagi Anda.
-            </p>
-        </div>
-    </section>
-
-    <footer>
-        <div class="container">
-            <p>&copy; Steve 2025</p>
-        </div>
-    </footer>
-
-    <script src="script.js"></script>
 </body>
 </html>
