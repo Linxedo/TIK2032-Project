@@ -1,90 +1,174 @@
-/* Cyberpunk Theme */
-
-body {
-    font-family: 'Arial', sans-serif;
-    background-color: #0e0e0e;
-    color: #e0e0e0;
+/* General Reset */
+* {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
 }
 
 a {
-    color: #00ff99;
     text-decoration: none;
-    transition: color 0.3s ease;
+    color: inherit;
 }
 
-a:hover {
-    color: #ff007f;
+ul {
+    list-style-type: none;
 }
 
-table {
-    width: 100%;
-    margin: 20px 0;
+/* Header */
+header {
+    background-color: #333;
+    padding: 10px 0;
 }
 
-td {
-    padding: 10px;
+nav {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
 }
 
-.header, .footer {
-    background-color: #111;
-    color: #ff0066;
-    text-align: center;
-    padding: 10px;
-    font-size: 18px;
-}
-
-.header b {
+.logo {
+    color: #fff;
     font-size: 24px;
+    font-weight: bold;
 }
 
-h1, h2, h3 {
-    color: #ff00ff;
-    text-shadow: 0 0 5px rgba(255, 0, 255, 0.7), 0 0 10px rgba(255, 0, 255, 0.7);
+.nav-links {
+    display: flex;
+    gap: 20px;
 }
 
-h1 {
-    font-size: 3em;
-    margin: 20px 0;
+.nav-links li a {
+    color: #fff;
+    font-size: 18px;
+    padding: 5px 10px;
+    transition: background-color 0.3s;
 }
 
-h2 {
-    font-size: 2em;
-    margin: 20px 0;
+.nav-links li a:hover {
+    background-color: #444;
 }
 
-h3 {
-    font-size: 1.5em;
+/* Hero Section */
+.hero {
+    background-color: #008cba;
+    color: #fff;
+    text-align: center;
+    padding: 80px 20px;
+}
+
+.hero h1 {
+    font-size: 48px;
     margin-bottom: 10px;
 }
 
-table img {
-    width: 80%;
-    max-width: 250px;
-    border: 5px solid #ff00ff;
-    box-shadow: 0 0 15px rgba(255, 0, 255, 0.7);
+.hero p {
+    font-size: 20px;
 }
 
-footer {
-    font-size: 16px;
-    background: #111;
-    padding: 20px 0;
+/* Content Section */
+.content {
+    text-align: center;
+    margin-top: 40px;
+}
+
+.content h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+.cards {
+    display: flex;
+    justify-content: space-around;
+    gap: 30px;
+    margin-top: 20px;
+}
+
+.card {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 30%;
     text-align: center;
 }
 
-footer p {
-    font-size: 14px;
-    color: #ff007f;
+.card img {
+    max-width: 100%;
+    border-radius: 8px;
+    margin-bottom: 15px;
 }
 
-/* Mobile responsiveness */
-@media screen and (max-width: 768px) {
-    table {
-        width: 90%;
+.card h3 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.card p {
+    font-size: 16px;
+    margin-bottom: 15px;
+}
+
+.card a {
+    color: #008cba;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+.card a:hover {
+    color: #005f73;
+}
+
+/* About Section */
+.about {
+    background-color: #fff;
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.about h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+.about p {
+    font-size: 18px;
+}
+
+/* Footer */
+.footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 40px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .cards {
+        flex-direction: column;
+        align-items: center;
     }
 
-    td {
-        padding: 15px;
+    .card {
+        width: 80%;
+        margin-bottom: 20px;
+    }
+
+    .hero h1 {
+        font-size: 36px;
+    }
+
+    .hero p {
+        font-size: 18px;
     }
 }
