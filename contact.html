@@ -1,17 +1,18 @@
 <!DOCTYPE html>
-<html>
+<html lang="id">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Website - Contact</title>
+    <link rel="stylesheet" href="contact.css">
 </head>
 <body>
 
-    <table width="100%" cellpadding="10" cellspacing="0">
+    <table>
         <tr>
-            <td>
-                <b>Steve</b>
-            </td>
+            <td><b>Steve</b></td>
             <td align="right">
-                <a href="index.html">Home</a> |
+                <a href="html.html">Home</a> |
                 <a href="gallery.html">Gallery</a> |
                 <a href="blog.html">Blog</a> |
                 <a href="contact.html">Contact</a>
@@ -19,7 +20,7 @@
         </tr>
     </table>
     
-    <table width="100%" cellpadding="10" cellspacing="0">
+    <table>
         <tr>
             <td align="center">
                 <b>Contact</b>
@@ -31,19 +32,19 @@
         <tr>
             <td>
                 <h2>Hubungi Kami</h2>
-                <form action="#" method="post">
+                <form action="#" method="post" id="contactForm">
                     <table width="100%" cellpadding="5" cellspacing="5">
                         <tr>
                             <td width="20%">Nama:</td>
-                            <td><input type="text" name="name"></td>
+                            <td><input type="text" name="name" id="name" required></td>
                         </tr>
                         <tr>
                             <td>Email:</td>
-                            <td><input type="email" name="email"></td>
+                            <td><input type="email" name="email" id="email" required></td>
                         </tr>
                         <tr>
                             <td>Pesan:</td>
-                            <td><textarea name="message" rows="5"></textarea></td>
+                            <td><textarea name="message" id="message" rows="5" required></textarea></td>
                         </tr>
                         <tr>
                             <td></td>
@@ -54,21 +55,18 @@
             </td>
         </tr>
         <tr>
-            <td>
+            <td class="contact-info">
                 <h2>Informasi Kontak</h2>
-                <p><strong>Instagram:</strong> <a href="https://www.instagram.com/akun_instagram_anda">@stveaw</a></p>
+                <p><strong>Instagram:</strong> <a href="https://www.instagram.com/akun_instagram_anda" target="_blank">@stveaw</a></p>
                 <p><strong>Nomor Telepon:</strong> +62 812 3456 7890</p>
             </td>
         </tr>
     </table>
     
-    <table width="100%" cellpadding="10" cellspacing="0">
-        <tr>
-            <td align="center">
-                &copy; Steve
-            </td>
-        </tr>
-    </table>
+    <div class="footer">
+        &copy; Steve 2025
+    </div>
 
+    <script src="contact.js"></script>
 </body>
 </html>
