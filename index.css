@@ -1,272 +1,129 @@
-/* style.css */
+/* index.css */
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
     margin: 0;
     padding: 0;
-    background-color: #f8f9fa; /* Light grey background */
-    color: #333;
-    line-height: 1.7;
-    min-height: 100vh; /* Ensure body takes at least full viewport height */
+    padding-bottom: 50px; /* Space for fixed footer */
     display: flex;
-    flex-direction: column; /* For sticky footer */
+    flex-direction: column;
+    min-height: 100vh; /* Ensure body covers full viewport */
 }
 
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
+table {
+    width: 80%; /* Match the width in HTML */
+    margin: 20px auto; /* Center the tables with some top/bottom margin */
+    border-collapse: collapse; /* Optional: Remove default table borders */
+    background-color: #fff; /* Optional: White background for tables */
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05); /* Optional: Subtle shadow */
+    border-radius: 8px; /* Optional: Rounded corners for tables */
+}
+
+td {
+    padding: 15px;
+    text-align: center; /* Default text alignment for cells */
+}
+
+td[align="right"] {
+    text-align: right; /* Override for right-aligned navigation */
+}
+
+b {
+    font-size: 24px;
+    color: #333;
+    font-weight: bold; /* Ensure bold text is actually bold */
+}
+
+a {
+    text-decoration: none;
+    color: #007BFF;
+    font-size: 16px;
+    transition: color 0.3s ease; /* Smooth hover effect */
+}
+
+a:hover {
+    color: #0056b3;
+}
+
+h1, h2, h3 {
+    color: #333;
+    text-align: center; /* Center headings */
+    margin-bottom: 15px;
+}
+
+h1 {
+    font-size: 2.5em;
+    margin-top: 20px;
+}
+
+h2 {
+    font-size: 2em;
+}
+
+h3 {
+    font-size: 1.4em;
+}
+
+p {
+    color: #555;
+    font-size: 1em;
+    line-height: 1.6; /* Improve readability */
+    text-align: center;
+}
+
+/* Styling for the image containers */
+td[width="33%"] {
     padding: 20px;
 }
 
-/* Header */
-header {
-    background-color: #fff;
-    padding: 20px 0;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    position: sticky;
-    top: 0;
-    z-index: 100;
-}
-
-header .container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.logo {
-    font-size: 1.8em;
-    color: #007bff; /* Primary blue color */
-    font-weight: bold;
-}
-
-nav ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-}
-
-nav ul li {
-    margin-left: 25px;
-}
-
-nav ul li a {
-    text-decoration: none;
-    color: #555;
-    transition: color 0.3s ease;
-    font-size: 1em;
-}
-
-nav ul li a:hover,
-nav ul li a.active {
-    color: #007bff;
-    font-weight: 500;
-}
-
-/* Hero Section */
-.hero {
-    background-color: #e9ecef; /* Light grey background */
-    padding: 100px 0;
-    text-align: center;
-}
-
-.hero .container {
-    max-width: 900px;
-}
-
-.hero h1 {
-    font-size: 3.5em;
-    color: #333;
-    margin-bottom: 15px;
-    font-weight: bold;
-}
-
-.hero .tagline {
-    font-size: 1.3em;
-    color: #6c757d; /* Slightly darker grey */
-    margin-bottom: 30px;
-}
-
-.button {
-    display: inline-block;
-    padding: 12px 24px;
-    background-color: #007bff;
-    color: #fff;
-    text-decoration: none;
-    border-radius: 8px;
-    transition: background-color 0.3s ease;
-    font-size: 1.1em;
-}
-
-.button:hover {
-    background-color: #0056b3;
-}
-
-/* Content Section */
-.content-section {
-    padding: 60px 0;
-    background-color: #fff;
-}
-
-.content-section h2 {
-    text-align: center;
-    color: #333;
-    margin-bottom: 40px;
-    font-size: 2.5em;
-    font-weight: bold;
-}
-
-.card-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 30px;
-}
-
-.card {
-    background-color: #fff;
-    border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    padding: 30px;
-    text-align: center;
-    transition: transform 0.3s ease-in-out;
-}
-
-.card:hover {
-    transform: translateY(-8px);
-}
-
-.card img {
+td[width="33%"] img {
     max-width: 100%;
     height: auto;
     border-radius: 8px;
-    margin-bottom: 20px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease-in-out;
 }
 
-.card h3 {
-    color: #333;
-    margin-bottom: 15px;
-    font-size: 1.6em;
-    font-weight: bold;
+td[width="33%"] img:hover {
+    transform: scale(1.05); /* Subtle zoom on hover */
 }
 
-.card p {
-    color: #6c757d;
-    margin-bottom: 20px;
-    font-size: 1em;
-}
-
-.card .button {
-    font-size: 1em;
-    padding: 10px 20px;
-    border-radius: 6px;
-}
-
-/* About Section */
-.about-section {
-    background-color: #f8f9fa;
-    padding: 80px 0;
+.footer {
+    background-color: #333;
+    color: white;
+    padding: 15px;
     text-align: center;
-}
-
-.about-section h2 {
-    color: #333;
-    margin-bottom: 30px;
-    font-size: 2.5em;
-    font-weight: bold;
-}
-
-.about-section p {
-    color: #6c757d;
-    line-height: 1.8;
-    font-size: 1.1em;
-    max-width: 800px;
-    margin: 0 auto;
-}
-
-/* Footer */
-footer {
-    background-color: #343a40; /* Dark grey footer */
-    color: #fff;
-    text-align: center;
-    padding: 30px 0;
-    margin-top: auto; /* Push footer to the bottom */
-}
-
-footer .container {
-    max-width: 1200px;
-    padding: 20px;
-}
-
-footer p {
-    font-size: 0.9em;
-    opacity: 0.8;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
 }
 
 /* Responsive Design */
 @media (max-width: 768px) {
-    .container {
-        padding: 15px;
+    table {
+        width: 95%; /* Make tables wider on smaller screens */
+        margin: 10px auto;
     }
 
-    header .container {
-        flex-direction: column;
-        align-items: flex-start;
+    td {
+        padding: 10px;
+        display: block; /* Stack table cells vertically */
+        width: 100%;
+        box-sizing: border-box; /* Prevent padding from increasing width */
+        margin-bottom: 10px;
+        text-align: center; /* Center text in stacked cells */
     }
 
-    .logo {
-        margin-bottom: 15px;
+    td[align="right"] {
+        text-align: center; /* Center navigation on smaller screens */
     }
 
-    nav ul {
-        flex-direction: column;
+    td[width="33%"] {
+        width: 100%; /* Make content cells full width */
     }
 
-    nav ul li {
-        margin: 15px 0;
-    }
-
-    .hero {
-        padding: 80px 0;
-    }
-
-    .hero h1 {
-        font-size: 3em;
-    }
-
-    .hero .tagline {
-        font-size: 1.2em;
-    }
-
-    .card-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .card {
-        margin-bottom: 30px;
-        padding: 25px;
-    }
-
-    .content-section h2 {
-        font-size: 2.2em;
-    }
-
-    .about-section {
-        padding: 60px 0;
-    }
-
-    .about-section h2 {
-        font-size: 2.2em;
-    }
-
-    .about-section p {
-        font-size: 1em;
-    }
-
-    footer {
-        padding: 20px 0;
-    }
-
-    footer p {
-        font-size: 0.85em;
+    .footer {
+        padding: 10px;
+        font-size: 0.9em;
     }
 }
