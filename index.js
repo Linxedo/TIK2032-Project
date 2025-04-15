@@ -1,12 +1,18 @@
-// Add smooth scrolling to anchor links
-document.querySelectorAll('a').forEach(anchor => {
-    anchor.addEventListener('click', function(e) {
-        e.preventDefault();
-        const targetId = this.getAttribute('href').substring(1);
-        const targetElement = document.getElementById(targetId);
-        window.scrollTo({
-            top: targetElement.offsetTop - 50,
-            behavior: 'smooth'
-        });
+// script.js
+console.log("Script file loaded!");
+
+// You can add JavaScript functionality here if needed.
+// For example, to add a dynamic effect or handle user interactions.
+
+// Example: Adding a simple hover effect to the navigation links
+const navLinks = document.querySelectorAll('nav a');
+
+navLinks.forEach(link => {
+    link.addEventListener('mouseover', () => {
+        link.style.color = '#00aaff';
+    });
+
+    link.addEventListener('mouseout', () => {
+        link.style.color = '#555';
     });
 });
