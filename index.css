@@ -1,76 +1,107 @@
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #eef1f5;
     margin: 0;
     padding: 0;
-    height: 100vh; 
+    height: 100vh;
     display: flex;
     flex-direction: column;
+    color: #2c3e50;
 }
 
 table {
     width: 100%;
-    padding: 10px;
-    margin: 0;
+    padding: 10px 20px;
     border-collapse: collapse;
+    background-color: #ffffff;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
 }
 
 td {
-    padding: 10px;
+    padding: 12px;
 }
 
 b {
-    font-size: 24px;
-    color: #333;
+    font-size: 26px;
+    color: #2d3436;
+    font-weight: 600;
 }
 
 a {
     text-decoration: none;
-    color: #007BFF;
+    color: #3498db;
     font-size: 16px;
+    transition: color 0.3s ease;
 }
 
 a:hover {
-    color: #0056b3;
+    color: #1d6fa5;
 }
 
 h1, h2, h3 {
-    color: #333;
+    color: #2c3e50;
+    margin-bottom: 10px;
 }
 
 .content {
     text-align: center;
-    margin-top: 20px;
+    margin: 40px auto;
+    max-width: 800px;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+    transition: transform 0.2s;
+}
+
+.content:hover {
+    transform: translateY(-4px);
 }
 
 .content img {
     width: 80%;
     max-width: 400px;
-    margin: 10px 0;
+    margin: 20px 0;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 }
 
 .content p {
-    color: #555;
-    font-size: 14px;
+    color: #636e72;
+    font-size: 15px;
+    line-height: 1.6;
 }
 
 .footer {
-    background-color: #333;
+    background-color: #2c3e50;
     color: white;
-    padding: 10px;
+    padding: 12px 20px;
     text-align: center;
     position: relative;
     width: 100%;
-    margin-top: auto; 
+    margin-top: auto;
+    font-size: 14px;
+    letter-spacing: 0.5px;
 }
 
 @media (max-width: 768px) {
     .content-container {
         display: block;
+        padding: 10px;
     }
 
     .content-container td {
         width: 100%;
         margin-bottom: 20px;
+        display: block;
+    }
+
+    .content {
+        margin: 20px 10px;
+        padding: 15px;
+    }
+
+    .content img {
+        width: 100%;
     }
 }
