@@ -1,15 +1,100 @@
 <!DOCTYPE html>
-<html>
+<html lang="id">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Website - Beranda</title>
+    
+    <style>
+        
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            height: 100vh; 
+            display: flex;
+            flex-direction: column;
+        }
+
+        
+        table {
+            width: 100%;
+            padding: 10px;
+            margin: 0;
+            border-collapse: collapse;
+        }
+
+        td {
+            padding: 10px;
+        }
+
+        
+        b {
+            font-size: 24px;
+            color: #333;
+        }
+
+        
+        a {
+            text-decoration: none;
+            color: #007BFF;
+            font-size: 16px;
+        }
+
+        a:hover {
+            color: #0056b3;
+        }
+
+        
+        h1, h2, h3 {
+            color: #333;
+        }
+
+        .content {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .content img {
+            width: 80%;
+            max-width: 400px;
+            margin: 10px 0;
+        }
+
+        .content p {
+            color: #555;
+            font-size: 14px;
+        }
+
+        .footer {
+            background-color: #333;
+            color: white;
+            padding: 10px;
+            text-align: center;
+            position: relative;
+            width: 100%;
+            margin-top: auto; 
+        }
+
+        
+        @media (max-width: 768px) {
+            .content-container {
+                display: block;
+            }
+
+            .content-container td {
+                width: 100%;
+                margin-bottom: 20px;
+            }
+        }
+    </style>
 </head>
 <body>
 
-    <table width="100%" cellpadding="10" cellspacing="0">
+    <table>
         <tr>
-            <td>
-                <b>Steve</b>
-            </td>
+            <td><b>Steve</b></td>
             <td align="right">
                 <a href="index.html">Home</a> |
                 <a href="gallery.html">Gallery</a> |
@@ -19,7 +104,7 @@
         </tr>
     </table>
     
-    <table width="100%" cellpadding="10" cellspacing="0">
+    <table>
         <tr>
             <td align="center">
                 <b>Beranda</b>
@@ -44,7 +129,7 @@
         </tr>
         <tr valign="top">
             <td width="33%" align="center">
-                <img src="" width="100%" alt="Galeri">
+                <img src="image1.jpg" alt="Galeri">
                 <h3>Galeri Foto</h3>
                 <p>Koleksi foto-foto terbaik dari berbagai kategori yang kami sajikan khusus untuk Anda.</p>
                 <p align="center">
@@ -53,7 +138,7 @@
             </td>
             
             <td width="33%" align="center">
-                <img src="" width="100%" alt="Blog">
+                <img src="image2.jpg" alt="Blog">
                 <h3>Artikel Blog</h3>
                 <p>Berbagai artikel menarik dengan topik yang informatif dan bermanfaat.</p>
                 <p align="center">
@@ -62,7 +147,7 @@
             </td>
             
             <td width="33%" align="center">
-                <img src="" width="100%" alt="Kontak">
+                <img src="image3.jpg" alt="Kontak">
                 <h3>Hubungi Kami</h3>
                 <p>Punya pertanyaan atau ingin berkolaborasi? Jangan ragu untuk menghubungi kami.</p>
                 <p align="center">
@@ -85,13 +170,23 @@
         </tr>
     </table>
     
-    <table width="100%" cellpadding="10" cellspacing="0">
-        <tr>
-            <td align="center">
-                &copy; Steve
-            </td>
-        </tr>
-    </table>
+    <div class="footer">
+        &copy; Steve 2025
+    </div>
+
+    <script>
+        
+        document.querySelectorAll('a').forEach(function(link) {
+            link.addEventListener('click', function(event) {
+                alert('Anda akan diarahkan ke halaman ' + link.text);
+            });
+        });
+
+        
+        window.onload = function() {
+            console.log("Halaman telah dimuat!");
+        }
+    </script>
 
 </body>
 </html>
