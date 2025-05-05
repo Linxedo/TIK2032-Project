@@ -1,11 +1,22 @@
-/* index.css */
+/* Buat body dan html memenuhi tinggi layar */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+}
 
 body {
     font-family: 'Arial', sans-serif;
-    margin: 0;
-    padding: 0;
     background-color: #f4f4f4;
     color: #333;
+}
+
+/* Bagian utama agar konten bisa dorong footer ke bawah */
+main {
+    padding: 20px;
+    flex: 1;
 }
 
 header {
@@ -24,10 +35,6 @@ nav a {
 
 nav a:hover, nav a.active {
     text-decoration: underline;
-}
-
-main {
-    padding: 20px;
 }
 
 .content-grid {
@@ -62,12 +69,11 @@ main {
     border-radius: 8px;
 }
 
+/* Footer selalu di bawah */
 .footer {
     text-align: center;
     padding: 10px 0;
     background: #007bff;
     color: white;
-    position: relative;
-    bottom: 0;
     width: 100%;
 }
