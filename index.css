@@ -36,10 +36,6 @@ body {
     transition: opacity 2s ease-in-out;
 }
 
-.background-layer.fade-out {
-    opacity: 0;
-}
-
 .background-container::before {
     content: '';
     position: absolute;
@@ -47,7 +43,7 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(255, 255, 255, 0.6);
+    background: rgba(255, 255, 255, 0.2);
     z-index: -1;
     transition: background 0.3s;
 }
@@ -61,18 +57,21 @@ body.dark-mode .background-container::before {
 }
 
 .header {
-    background: linear-gradient(135deg, #6200ea 0%, #03a9f4 100%);
+    background: linear-gradient(135deg, rgba(0, 128, 128, 0.85) 0%, rgba(39, 107, 179, 0.85) 100%);
     padding: 1rem;
     text-align: center;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
     position: sticky;
     top: 0;
     z-index: 1000;
+    backdrop-filter: blur(5px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .logo h1 {
     color: #fff;
     font-size: 1.8rem;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
 }
 
 .nav {
@@ -88,11 +87,12 @@ body.dark-mode .background-container::before {
     font-weight: 500;
     padding: 0.5rem 1rem;
     border-radius: 5px;
-    transition: background 0.3s;
+    transition: all 0.3s;
 }
 
 .nav-link:hover, .nav-link.active {
-    background: rgba(255, 255, 255, 0.3);
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
 }
 
 .customization-controls {
@@ -108,7 +108,7 @@ body.dark-mode .background-container::before {
     padding: 0.5rem;
     border-radius: 5px;
     border: none;
-    background: #fff;
+    background: rgba(255, 255, 255, 0.8);
     color: #333;
     cursor: pointer;
 }
@@ -146,18 +146,26 @@ body.dark-mode .background-container::before {
 }
 
 .card {
-    background: rgba(255, 255, 255, 0.9);
-    border-radius: 10px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+    background: rgba(255, 255, 255, 0.7);
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
     display: flex;
     flex-direction: column;
     min-height: 400px;
     animation: fadeInUp 1s ease-out;
-    border: 1px solid rgba(98, 0, 234, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(10px);
+    transition: transform 0.3s, box-shadow 0.3s;
+    overflow: hidden;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
 }
 
 body.dark-mode .card {
-    background: rgba(44, 44, 44, 0.9);
+    background: rgba(44, 44, 44, 0.7);
     border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
@@ -165,44 +173,55 @@ body.dark-mode .card {
     width: 100%;
     height: 200px;
     object-fit: cover;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
+    transition: transform 0.5s;
+}
+
+.card:hover img {
+    transform: scale(1.05);
 }
 
 .card h3 {
     padding: 1rem;
     font-size: 1.4rem;
-    color: #6200ea;
+    color: #276bb3;
+    text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.5);
+}
+
+body.dark-mode .card h3 {
+    color: #81b0ff;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
 }
 
 .card p {
     padding: 0 1rem 1rem;
     font-size: 1rem;
-    color: #666;
+    color: #444;
     flex-grow: 1;
 }
 
 body.dark-mode .card p {
-    color: #bbb;
+    color: #ccc;
 }
 
 .card-link {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0.5rem 1rem;
+    padding: 0.7rem 1.2rem;
     margin: 0 1rem 1rem;
-    background: #03a9f4;
+    background: linear-gradient(135deg, #008080 0%, #276bb3 100%);
     color: #fff;
     text-decoration: none;
-    border-radius: 5px;
+    border-radius: 50px;
     font-weight: 500;
-    transition: background 0.3s, transform 0.3s;
+    transition: all 0.3s;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 .card-link:hover {
-    background: #0288d1;
+    background: linear-gradient(135deg, #009999 0%, #3b82cc 100%);
     transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .card-link i {
@@ -210,52 +229,69 @@ body.dark-mode .card p {
 }
 
 .about {
-    background: rgba(255, 255, 255, 0.9);
-    padding: 2rem;
-    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.7);
+    padding: 2.5rem;
+    border-radius: 15px;
     text-align: center;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
     animation: fadeInUp 1.2s ease-out;
-    border: 1px solid rgba(98, 0, 234, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(10px);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.about:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
 }
 
 body.dark-mode .about {
-    background: rgba(44, 44, 44, 0.9);
+    background: rgba(44, 44, 44, 0.7);
     border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .about h3 {
     font-size: 1.8rem;
     margin-bottom: 1rem;
-    color: #6200ea;
+    color: #276bb3;
+    text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.5);
+}
+
+body.dark-mode .about h3 {
+    color: #81b0ff;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
 }
 
 .cta-button {
     display: inline-block;
-    padding: 0.8rem 1.5rem;
-    background: #03a9f4;
+    padding: 0.8rem 1.8rem;
+    background: linear-gradient(135deg, #008080 0%, #276bb3 100%);
     color: #fff;
     text-decoration: none;
-    border-radius: 5px;
+    border-radius: 50px;
     margin-top: 1rem;
-    transition: background 0.3s, transform 0.3s;
+    transition: all 0.3s;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    font-weight: 500;
 }
 
 .cta-button:hover {
-    background: #0288d1;
+    background: linear-gradient(135deg, #009999 0%, #3b82cc 100%);
     transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .footer {
-    background: #333;
+    background: rgba(51, 51, 51, 0.8);
     color: #fff;
-    padding: 1rem;
+    padding: 1.2rem;
     text-align: center;
     position: absolute;
     bottom: 0;
     width: 100%;
-    border-top: 1px solid #444;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
     z-index: 10;
+    backdrop-filter: blur(5px);
 }
 
 .footer p {
@@ -266,11 +302,13 @@ body.dark-mode .about {
     color: #fff;
     margin: 0 0.5rem;
     font-size: 1.2rem;
-    transition: color 0.3s;
+    transition: color 0.3s, transform 0.3s;
+    display: inline-block;
 }
 
 .social-links a:hover {
-    color: #03a9f4;
+    color: #7ee0ff;
+    transform: translateY(-3px);
 }
 
 @keyframes fadeInUp {
