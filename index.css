@@ -36,22 +36,6 @@ body {
     transition: opacity 2s ease-in-out;
 }
 
-#bg-layer-1 {
-    /* Set initial background directly in CSS */
-    background-image: url('https://images.unsplash.com/photo-1507521628349-dee6b874e9e1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');
-    opacity: 1;
-    /* Disable transition for initial load */
-    transition: none;
-}
-
-#bg-layer-2 {
-    opacity: 0;
-}
-
-.background-layer.transition-enabled {
-    transition: opacity 2s ease-in-out;
-}
-
 .background-layer.fade-out {
     opacity: 0;
 }
@@ -145,7 +129,7 @@ body.dark-mode .background-container::before {
 .main {
     padding-bottom: 80px;
     position: relative;
-    z-index: 1;
+    z-index: 1; /* Pastikan konten utama di atas background */
 }
 
 .content {
