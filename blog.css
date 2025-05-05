@@ -184,12 +184,10 @@ body.dark-mode .card {
     padding: 1rem;
     font-size: 1.4rem;
     color: #333;
-    text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.5);
 }
 
 body.dark-mode .card h3 {
     color: #fff;
-    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
 }
 
 .card p {
@@ -197,7 +195,6 @@ body.dark-mode .card h3 {
     font-size: 1rem;
     color: #111;
     flex-grow: 1;
-    text-shadow: 0 0 1px rgba(255, 255, 255, 0.5);
 }
 
 body.dark-mode .card p {
@@ -256,12 +253,10 @@ body.dark-mode .about {
     font-size: 1.8rem;
     margin-bottom: 1rem;
     color: #333;
-    text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.5);
 }
 
 body.dark-mode .about h3 {
     color: #fff;
-    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
 }
 
 .cta-button {
@@ -319,18 +314,18 @@ body.dark-mode .about h3 {
     margin-bottom: 2rem;
     text-align: center;
     color: #333;
-    text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.5);
 }
 
 body.dark-mode .blog-title {
     color: #fff;
-    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
 }
 
 .articles-container {
     display: flex;
     flex-direction: column;
-    gap: 2rem;
+    gap: 3rem;
+    max-width: 800px;
+    margin: 0 auto;
 }
 
 .article-card {
@@ -344,7 +339,6 @@ body.dark-mode .blog-title {
     backdrop-filter: blur(10px);
     transition: transform 0.3s, box-shadow 0.3s;
     overflow: hidden;
-    padding-bottom: 1rem;
 }
 
 .article-card:hover {
@@ -359,7 +353,7 @@ body.dark-mode .article-card {
 
 .article-card img {
     width: 100%;
-    height: 300px;
+    height: 250px;
     object-fit: cover;
     transition: transform 0.5s;
 }
@@ -369,19 +363,18 @@ body.dark-mode .article-card {
 }
 
 .article-card h3 {
-    padding: 1rem;
-    font-size: 1.8rem;
+    padding: 1.5rem 1.5rem 0.5rem;
+    font-size: 1.6rem;
     color: #333;
-    text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.5);
+    line-height: 1.4;
 }
 
 body.dark-mode .article-card h3 {
     color: #fff;
-    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
 }
 
 .article-card .article-meta {
-    padding: 0 1rem;
+    padding: 0 1.5rem;
     font-size: 0.9rem;
     color: #555;
     margin-bottom: 1rem;
@@ -392,10 +385,14 @@ body.dark-mode .article-card .article-meta {
 }
 
 .article-card .article-content {
-    padding: 0 1rem 1rem;
+    padding: 0 1.5rem 1.5rem;
     font-size: 1rem;
     color: #111;
-    text-shadow: 0 0 1px rgba(255, 255, 255, 0.5);
+    line-height: 1.8;
+}
+
+.article-card .article-content p {
+    margin-bottom: 1rem;
 }
 
 body.dark-mode .article-card .article-content {
@@ -435,5 +432,9 @@ body.dark-mode .article-card .article-content {
         flex-direction: column;
         gap: 0.5rem;
         right: 0.5rem;
+    }
+
+    .articles-container {
+        gap: 2rem;
     }
 }
