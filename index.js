@@ -9,9 +9,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Background slideshow
     const backgrounds = [
-        'https://images.unsplash.com/photo-1507521628349-dee6b874e9e1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80',
-        'https://images.unsplash.com/photo-1519681393784-d120267933ba?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80',
-        'https://images.unsplash.com/photo-1446329813274-7c9036bd9a1f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80'
+        'https://4kwallpapers.com/images/wallpapers/white-dog-mountains-lake-louise-clouds-pet-water-blue-5k-2560x1440-2432.jpg',
+        'https://wallpapers.com/images/hd/2440x1440-nature-background-z6t44psuemi6tkc2.jpg',
+        'https://www.itl.cat/pngfile/big/14-145567_beautiful-highresolution-desktop-wallpapers-25601440-nature-ultra-hd.jpg'
     ];
 
     // Preload images to avoid delays
@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
         img.src = src;
     });
 
-    let currentBackground = 1;
+    let currentBackground = 0;
     let activeLayer = bgLayer1;
 
     function changeBackground() {
