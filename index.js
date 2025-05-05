@@ -1,8 +1,24 @@
-const navLinks = document.querySelectorAll('.nav-link');
-const pageTitle = document.getElementById('pageTitle');
-const cardsContainer = document.getElementById('cardsContainer');
-const aboutSection = document.getElementById('aboutSection');
-const welcomeMsg = document.getElementById('welcomeMsg');
+// Navigation active highlight and content switching simulation (since no real pages)
+const navLinks = document.querySelectorAll('nav a');
+const pageTitle = document.getElementById('page-title');
+const welcomeMsg = document.getElementById('welcome-msg');
+const cardsContainer = document.getElementById('cards-container');
+const aboutSection = document.getElementById('about-section');
+
+// Welcome messages to cycle
+const dynamicWelcomeMessages = [
+    "Website sedang dalam pengembangan...",
+    "Segera hadir dengan fitur-fitur menarik!",
+    "Pantau terus untuk update terbaru.",
+    "Terima kasih telah mengunjungi kami!"
+];
+let welcomeIndex = 0;
+
+// Cycle the welcome message every 3 seconds
+setInterval(() => {
+    welcomeIndex = (welcomeIndex + 1) % dynamicWelcomeMessages.length;
+    welcomeMsg.textContent = dynamicWelcomeMessages[welcomeIndex];
+}, 3000);
 
 function setActiveLink(target) {
     navLinks.forEach(link => {
@@ -17,7 +33,6 @@ function loadPageContent(page) {
             cardsContainer.style.display = 'flex';
             aboutSection.style.display = 'block';
             welcomeMsg.style.display = 'block';
-            welcomeMsg.textContent = 'Selamat datang di situs kami!';
             break;
         case 'gallery':
             pageTitle.textContent = 'Galeri Foto';
@@ -45,7 +60,6 @@ function loadPageContent(page) {
             cardsContainer.style.display = 'flex';
             aboutSection.style.display = 'block';
             welcomeMsg.style.display = 'block';
-            welcomeMsg.textContent = 'Selamat datang di situs kami!';
     }
 }
 
@@ -57,9 +71,10 @@ navLinks.forEach(link => {
     });
 });
 
+// Make cards clickable linking to respective pages (open in new tab)
 cardsContainer.addEventListener('click', e => {
     const card = e.target.closest('.card');
-    if (card && card.dataset.link) {
+    if(card && card.dataset.link) {
         window.open(card.dataset.link, '_blank');
     }
 });
