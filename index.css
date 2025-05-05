@@ -1,42 +1,54 @@
+/* Reset & base */
+* {
+    box-sizing: border-box;
+}
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-}
-
-nav {
-    background-color: #333;
-    padding: 10px;
-}
-
-.nav-link {
-    color: white;
-    margin-right: 15px;
-    text-decoration: none;
-}
-
-.nav-link.active {
-    font-weight: bold;
-    text-decoration: underline;
-}
-
-#cardsContainer {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0; padding: 0;
+    background: #f0f4f8;
+    color: #2e3a59;
     display: flex;
-    gap: 10px;
-    padding: 20px;
+    flex-direction: column;
+    min-height: 100vh;
+    max-height: 600px;
+    max-width: 350px;
+    overflow: hidden;
+}
+header {
+    background: #34495e;
+    color: white;
+    padding: 15px 10px;
+    text-align: center;
+    flex-shrink: 0;
+    user-select: none;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+header h1 {
+    margin: 0; font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+nav {
+    margin-top:10px;
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+nav a {
+    color: #ecf0f1;
+    text-decoration: none;
+    font-weight: 600;
+    padding: 6px 12px;
+    border-radius: 20px;
+    transition: background-color 0.3s ease;
+    user-select: none;
+}
+nav a:hover,
+nav a.active {
+    background-color: #2ecc71;
+    color: #fff;
 }
 
-.card {
-    background-color: #eee;
-    padding: 20px;
-    cursor: pointer;
-}
-
-#aboutSection {
-    padding: 20px;
-}
-
-#welcomeMsg {
-    padding: 20px;
-    background-color: #f0f0f0;
-}
+main {
+   
