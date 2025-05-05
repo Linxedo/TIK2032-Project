@@ -128,6 +128,8 @@ body.dark-mode .background-container::before {
 
 .main {
     padding-bottom: 80px;
+    position: relative;
+    z-index: 1; /* Pastikan konten utama di atas background */
 }
 
 .content {
