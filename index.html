@@ -3,95 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Website - Beranda</title>
-    
-    <link rel="stylesheet" href="index.css"> <!-- Link to the external CSS file -->
+    <title>Halaman Web</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <nav>
+        <a href="#" class="nav-link active" data-page="home">Beranda</a>
+        <a href="#" class="nav-link" data-page="gallery">Galeri</a>
+        <a href="#" class="nav-link" data-page="blog">Blog</a>
+        <a href="#" class="nav-link" data-page="contact">Kontak</a>
+    </nav>
 
-    <table>
-        <tr>
-            <td><b>Steve</b></td>
-            <td align="right">
-                <a href="index.html">Home</a> |
-                <a href="gallery.html">Gallery</a> |
-                <a href="blog.html">Blog</a> |
-                <a href="contact.html">Contact</a>
-            </td>
-        </tr>
-    </table>
+    <h1 id="pageTitle">Beranda</h1>
+    <section id="cardsContainer">
+        <div class="card" data-link="https://example.com/1">Card 1</div>
+        <div class="card" data-link="https://example.com/2">Card 2</div>
+    </section>
     
-    <table>
-        <tr>
-            <td align="center">
-                <b>Beranda</b>
-            </td>
-        </tr>
-    </table>
+    <section id="aboutSection">
+        <p>Tentang kami...</p>
+    </section>
     
-    <table width="80%" align="center" cellpadding="20" cellspacing="0" border="0">
-        <tr>
-            <td align="center">
-                <h1>Welcome</h1>
-                <p>Underdevelopment.</p>
-            </td>
-        </tr>
-    </table>
-    
-    <table width="80%" align="center" cellpadding="20" cellspacing="0" border="0">
-        <tr>
-            <td align="center" colspan="3">
-                <h2>Content</h2>
-            </td>
-        </tr>
-        <tr valign="top">
-            <td width="33%" align="center">
-                <img src="image1.jpg" alt="Galeri">
-                <h3>Galeri Foto</h3>
-                <p>Koleksi foto-foto terbaik dari berbagai kategori yang kami sajikan khusus untuk Anda.</p>
-                <p align="center">
-                    <a href="gallery.html">Lihat Galeri →</a>
-                </p>
-            </td>
-            
-            <td width="33%" align="center">
-                <img src="image2.jpg" alt="Blog">
-                <h3>Artikel Blog</h3>
-                <p>Berbagai artikel menarik dengan topik yang informatif dan bermanfaat.</p>
-                <p align="center">
-                    <a href="blog.html">Baca Artikel →</a>
-                </p>
-            </td>
-            
-            <td width="33%" align="center">
-                <img src="image3.jpg" alt="Kontak">
-                <h3>Hubungi Kami</h3>
-                <p>Punya pertanyaan atau ingin berkolaborasi? Jangan ragu untuk menghubungi kami.</p>
-                <p align="center">
-                    <a href="contact.html">Kontak →</a>
-                </p>
-            </td>
-        </tr>
-    </table>
-    
-    <table width="80%" align="center" cellpadding="30" cellspacing="0" border="0">
-        <tr>
-            <td align="center">
-                <h2>Tentang Website Ini</h2>
-                <p>
-                    Website ini dibuat sebagai portofolio dan media berbagi informasi. 
-                    Menyajikan berbagai konten menarik mulai dari fotografi, teknologi, 
-                    hingga tips dan trik sehari-hari.
-                </p>
-            </td>
-        </tr>
-    </table>
-    
-    <div class="footer">
-        &copy; Steve 2025
-    </div>
+    <div id="welcomeMsg">Selamat datang di situs kami!</div>
 
-    <script src="index.js"></script> <!-- Link to the external JS file -->
-
+    <script src="script.js"></script>
 </body>
 </html>
