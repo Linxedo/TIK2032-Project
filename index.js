@@ -14,20 +14,40 @@ document.addEventListener('DOMContentLoaded', () => {
         'https://images.unsplash.com/photo-1446329813274-7c9036bd9a1f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80'
     ];
 
-    // Preload images to avoid delays
+    // Preload images and track completion
+    let imagesLoaded = 0;
     backgrounds.forEach(src => {
         const img = new Image();
         img.src = src;
+        img.onload = () => {
+            imagesLoaded++;
+            // Start slideshow only after all images are loaded
+            if (imagesLoaded === backgrounds.length) {
+                startSlideshow();
+            }
+        };
+        img.onerror = () => {
+            imagesLoaded++;
+            // Proceed even if an image fails to load
+            if (imagesLoaded === backgrounds.length) {
+                startSlideshow();
+            }
+        };
     });
 
-    let currentBackground = 1; // Start with second image since first is set in CSS
-    let activeLayer = bgLayer1;
+    // Ensure initial background is visible immediately
+    bgLayer1.style.backgroundImage = `url('${backgrounds[0]}')`;
+    bgLayer1.style.opacity = '1';
+    bgLayer2.style.opacity = '0';
 
-    // Enable transition after initial load
+    // Add transition class after initial load to enable smooth fades
     setTimeout(() => {
         bgLayer1.classList.add('transition-enabled');
         bgLayer2.classList.add('transition-enabled');
-    }, 0);
+    }, 100);
+
+    let currentBackground = 1;
+    let activeLayer = bgLayer1;
 
     function changeBackground() {
         const nextLayer = activeLayer === bgLayer1 ? bgLayer2 : bgLayer1;
@@ -38,8 +58,10 @@ document.addEventListener('DOMContentLoaded', () => {
         currentBackground = (currentBackground + 1) % backgrounds.length;
     }
 
-    // Start slideshow
-    setInterval(changeBackground, 10000);
+    function startSlideshow() {
+        // Start slideshow only after images are preloaded
+        setInterval(changeBackground, 10000);
+    }
 
     // Highlight active navigation link
     navLinks.forEach(link => {
