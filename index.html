@@ -1,30 +1,58 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Halaman Web</title>
-    <link rel="stylesheet" href="index.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+    <title>My Website - Beranda</title>
+    <link rel="stylesheet" href="index.css" />
 </head>
 <body>
-    <nav>
-        <a href="#" class="nav-link active" data-page="home">Beranda</a>
-        <a href="#" class="nav-link" data-page="gallery">Galeri</a>
-        <a href="#" class="nav-link" data-page="blog">Blog</a>
-        <a href="#" class="nav-link" data-page="contact">Kontak</a>
-    </nav>
+    <header>
+        <h1>Steve</h1>
+        <nav>
+            <a href="#" data-page="home" class="active">Home</a>
+            <a href="#" data-page="gallery">Gallery</a>
+            <a href="#" data-page="blog">Blog</a>
+            <a href="#" data-page="contact">Contact</a>
+        </nav>
+    </header>
 
-    <h1 id="pageTitle">Beranda</h1>
-    <section id="cardsContainer">
-        <div class="card" data-link="https://example.com/1">Card 1</div>
-        <div class="card" data-link="https://example.com/2">Card 2</div>
-    </section>
-    
-    <section id="aboutSection">
-        <p>Tentang kami...</p>
-    </section>
-    
-    <div id="welcomeMsg">Selamat datang di situs kami!</div>
+    <main>
+        <h2 id="page-title">Beranda</h2>
+        <div class="welcome-message" id="welcome-msg">Underdevelopment.</div>
+
+        <div id="content-section">
+            <div class="content-grid" id="cards-container">
+                <div class="card" data-link="gallery.html">
+                    <img src="https://images.pexels.com/photos/356378/pexels-photo-356378.jpeg?auto=compress&cs=tinysrgb&h=300" alt="Galeri" />
+                    <h3>Galeri Foto</h3>
+                    <p>Koleksi foto-foto terbaik dari berbagai kategori yang kami sajikan khusus untuk Anda.</p>
+                    <a href="gallery.html">Lihat Galeri →</a>
+                </div>
+                <div class="card" data-link="blog.html">
+                    <img src="https://images.pexels.com/photos/261662/pexels-photo-261662.jpeg?auto=compress&cs=tinysrgb&h=300" alt="Blog" />
+                    <h3>Artikel Blog</h3>
+                    <p>Berbagai artikel menarik dengan topik yang informatif dan bermanfaat.</p>
+                    <a href="blog.html">Baca Artikel →</a>
+                </div>
+                <div class="card" data-link="contact.html">
+                    <img src="https://images.pexels.com/photos/3183171/pexels-photo-3183171.jpeg?auto=compress&cs=tinysrgb&h=300" alt="Kontak" />
+                    <h3>Hubungi Kami</h3>
+                    <p>Punya pertanyaan atau ingin berkolaborasi? Jangan ragu untuk menghubungi kami.</p>
+                    <a href="contact.html">Kontak →</a>
+                </div>
+            </div>
+            <section class="about" id="about-section">
+                Website ini dibuat sebagai portofolio dan media berbagi informasi. 
+                Menyajikan berbagai konten menarik mulai dari fotografi, teknologi, 
+                hingga tips dan trik sehari-hari.
+            </section>
+        </div>
+    </main>
+
+    <footer class="footer">
+        &copy; Steve 2025
+    </footer>
 
     <script src="index.js"></script>
 </body>
