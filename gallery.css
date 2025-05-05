@@ -157,11 +157,10 @@ body.dark-mode .gallery-title {
 .gallery-container {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 30px;
+    gap: 20px;
     padding: 20px 0;
     max-width: 1200px;
     margin: 0 auto;
-    box-sizing: border-box;
 }
 
 .gallery-item {
@@ -261,13 +260,6 @@ body.dark-mode .gallery-item {
 }
 
 /* Responsive Adjustments */
-@media (max-width: 1200px) {
-    .gallery-container {
-        grid-template-columns: repeat(2, 1fr);
-        padding: 20px;
-    }
-}
-
 @media (max-width: 768px) {
     .nav {
         flex-direction: column;
