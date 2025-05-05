@@ -4,7 +4,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const themeToggle = document.querySelector('.theme-toggle');
     const fontSelector = document.querySelector('#font-selector');
     const body = document.body;
-    const backgroundContainer = document.querySelector('#background-container');
+    const bgLayer1 = document.querySelector('#bg-layer-1');
+    const bgLayer2 = document.querySelector('#bg-layer-2');
 
     // Background slideshow
     const backgrounds = [
@@ -20,25 +21,26 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     let currentBackground = 0;
+    let activeLayer = bgLayer1;
 
     function changeBackground() {
-        backgroundContainer.style.opacity = 0;
-        setTimeout(() => {
-            backgroundContainer.style.backgroundImage = `url('${backgrounds[currentBackground]}')`;
-            backgroundContainer.style.opacity = 1;
-            currentBackground = (currentBackground + 1) % backgrounds.length;
-        }, 1000); // Match CSS transition duration
+        const nextLayer = activeLayer === bgLayer1 ? bgLayer2 : bgLayer1;
+        nextLayer.style.backgroundImage = `url('${backgrounds[currentBackground]}')`;
+        nextLayer.classList.remove('fade-out');
+        activeLayer.classList.add('fade-out');
+        activeLayer = nextLayer;
+        currentBackground = (currentBackground + 1) % backgrounds.length;
     }
 
-    // Initial background
-    backgroundContainer.style.backgroundImage = `url('${backgrounds[currentBackground]}')`;
+    // Initialize first background
+    bgLayer1.style.backgroundImage = `url('${backgrounds[currentBackground]}')`;
     currentBackground = (currentBackground + 1) % backgrounds.length;
     setInterval(changeBackground, 10000);
 
     // Highlight active navigation link
     navLinks.forEach(link => {
         link.addEventListener('click', (e) => {
-            e.preventDefault(); // Prevent default to test locally; remove in production
+            e.preventDefault(); // For testing; remove in production
             navLinks.forEach(l => l.classList.remove('active'));
             link.classList.add('active');
             // Uncomment in production: window.location.href = link.href;
