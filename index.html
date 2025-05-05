@@ -6,6 +6,7 @@
     <title>My Website - Beranda</title>
     <link rel="stylesheet" href="index.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&family=Open+Sans&family=Lora&display=swap" rel="stylesheet" />
 </head>
 <body>
     <header class="header">
@@ -18,9 +19,16 @@
             <a href="blog.html" class="nav-link">Blog</a>
             <a href="contact.html" class="nav-link">Contact</a>
         </nav>
-        <button class="theme-toggle" aria-label="Toggle dark mode">
-            <i class="fas fa-moon"></i>
-        </button>
+        <div class="customization-controls">
+            <select id="font-selector" aria-label="Select font">
+                <option value="Roboto">Roboto</option>
+                <option value="Open Sans">Open Sans</option>
+                <option value="Lora">Lora</option>
+            </select>
+            <button class="theme-toggle" aria-label="Toggle dark mode">
+                <i class="fas fa-moon"></i>
+            </button>
+        </div>
     </header>
 
     <main class="main">
