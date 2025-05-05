@@ -10,8 +10,7 @@ body {
     color: #333;
     position: relative;
     min-height: 100vh;
-    transition: color 0.3s, font-family 0.3s;
-    background: transparent;
+    background: #f0f0f0;
 }
 
 .background-container {
@@ -20,7 +19,8 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: -2;
+    z-index: -1;
+    overflow: hidden;
 }
 
 .background-layer {
@@ -32,28 +32,8 @@ body {
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
-    opacity: 1;
+    opacity: 0.5;
     transition: opacity 2s ease-in-out;
-}
-
-.background-container::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(255, 255, 255, 0.2);
-    z-index: -1;
-    transition: background 0.3s;
-}
-
-body.dark-mode {
-    color: #ddd;
-}
-
-body.dark-mode .background-container::before {
-    background: rgba(0, 0, 0, 0.5);
 }
 
 .header {
@@ -71,7 +51,6 @@ body.dark-mode .background-container::before {
 .logo h1 {
     color: #fff;
     font-size: 1.8rem;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
 }
 
 .nav {
@@ -146,7 +125,7 @@ body.dark-mode .background-container::before {
 }
 
 .card {
-    background: rgba(255, 255, 255, 0.4);
+    background: rgba(255, 255, 255, 0.9);
     border-radius: 15px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
     display: flex;
@@ -154,7 +133,6 @@ body.dark-mode .background-container::before {
     min-height: 400px;
     animation: fadeInUp 1s ease-out;
     border: none;
-    backdrop-filter: blur(10px);
     transition: transform 0.3s, box-shadow 0.3s;
     overflow: hidden;
 }
@@ -165,8 +143,8 @@ body.dark-mode .background-container::before {
 }
 
 body.dark-mode .card {
-    background: rgba(44, 44, 44, 0.7);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(44, 44, 44, 0.9);
+    color: #ddd;
 }
 
 .card img {
@@ -228,14 +206,13 @@ body.dark-mode .card p {
 }
 
 .about {
-    background: rgba(255, 255, 255, 0.4);
+    background: rgba(255, 255, 255, 0.9);
     padding: 2.5rem;
     border-radius: 15px;
     text-align: center;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
     animation: fadeInUp 1.2s ease-out;
     border: none;
-    backdrop-filter: blur(10px);
     transition: transform 0.3s, box-shadow 0.3s;
 }
 
@@ -245,8 +222,8 @@ body.dark-mode .card p {
 }
 
 body.dark-mode .about {
-    background: rgba(44, 44, 44, 0.7);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(44, 44, 44, 0.9);
+    color: #ddd;
 }
 
 .about h3 {
@@ -326,17 +303,17 @@ body.dark-mode .blog-title {
     gap: 3rem;
     max-width: 800px;
     margin: 0 auto;
+    padding: 2rem 0;
 }
 
 .article-card {
-    background: rgba(255, 255, 255, 0.4);
+    background: rgba(255, 255, 255, 0.95);
     border-radius: 15px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
     display: flex;
     flex-direction: column;
     animation: fadeInUp 1s ease-out;
-    border: none;
-    backdrop-filter: blur(10px);
+    border: 1px solid rgba(0, 0, 0, 0.05);
     transition: transform 0.3s, box-shadow 0.3s;
     overflow: hidden;
 }
@@ -347,7 +324,8 @@ body.dark-mode .blog-title {
 }
 
 body.dark-mode .article-card {
-    background: rgba(44, 44, 44, 0.7);
+    background: rgba(44, 44, 44, 0.95);
+    color: #ddd;
     border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
@@ -386,17 +364,17 @@ body.dark-mode .article-card .article-meta {
 
 .article-card .article-content {
     padding: 0 1.5rem 1.5rem;
-    font-size: 1rem;
+    font-size: 1.1rem;
     color: #111;
     line-height: 1.8;
 }
 
 .article-card .article-content p {
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
 }
 
 body.dark-mode .article-card .article-content {
-    color: #ccc;
+    color: #ddd;
 }
 
 @keyframes fadeInUp {
