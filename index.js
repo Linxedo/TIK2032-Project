@@ -23,6 +23,12 @@ document.addEventListener('DOMContentLoaded', () => {
     let currentBackground = 0;
     let activeLayer = bgLayer1;
 
+    // Initialize first background immediately
+    bgLayer1.style.backgroundImage = `url('${backgrounds[currentBackground]}')`;
+    bgLayer1.style.opacity = '1';
+    bgLayer2.style.opacity = '0';
+    currentBackground = (currentBackground + 1) % backgrounds.length;
+
     function changeBackground() {
         const nextLayer = activeLayer === bgLayer1 ? bgLayer2 : bgLayer1;
         nextLayer.style.backgroundImage = `url('${backgrounds[currentBackground]}')`;
@@ -32,11 +38,7 @@ document.addEventListener('DOMContentLoaded', () => {
         currentBackground = (currentBackground + 1) % backgrounds.length;
     }
 
-    // Initialize first background
-    bgLayer1.style.backgroundImage = `url('${backgrounds[currentBackground]}')`;
-    bgLayer1.style.opacity = '1';
-    bgLayer2.style.opacity = '0';
-    currentBackground = (currentBackground + 1) % backgrounds.length;
+    // Start slideshow after initial load
     setInterval(changeBackground, 10000);
 
     // Highlight active navigation link
