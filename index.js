@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
         img.src = src;
     });
 
-    let currentBackground = 0;
+    let currentBackground = 1;
     let activeLayer = bgLayer1;
 
     function changeBackground() {
