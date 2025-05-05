@@ -39,12 +39,12 @@ document.addEventListener('DOMContentLoaded', () => {
     currentBackground = (currentBackground + 1) % backgrounds.length;
     setInterval(changeBackground, 10000);
 
-    // Highlight active navigation link and navigate
+    // Highlight active navigation link
     navLinks.forEach(link => {
         link.addEventListener('click', () => {
             navLinks.forEach(l => l.classList.remove('active'));
             link.classList.add('active');
-            window.location.href = link.href;
+            // Let the default <a> tag behavior handle navigation
         });
     });
 
