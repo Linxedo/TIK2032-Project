@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const backgrounds = [
         'https://images.unsplash.com/photo-1504208434309-cb69f4fe52b0?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8ZG9nJTIwbGFuZHNjYXBlfGVufDB8fDB8fHww',
         'https://images.unsplash.com/photo-1506104489822-562ca25152fe?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8NGslMjBuYXR1cmV8ZW58MHx8MHx8fDA%3D',
-        'https://wallpapercave.com/wp/wp2506849.jpg'
+        'https://wallup.net/wp-content/uploads/2019/09/239512-nature-mountain-forest-landscape-fog-lake-ultrahd-4k-wallpaper-1.jpg'
     ];
 
     // Preload images to avoid delays
