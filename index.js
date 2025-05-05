@@ -39,13 +39,13 @@ document.addEventListener('DOMContentLoaded', () => {
     currentBackground = (currentBackground + 1) % backgrounds.length;
     setInterval(changeBackground, 10000);
 
-    // Highlight active navigation link
+    // Set active navigation link based on current page
+    const currentPage = window.location.pathname.split('/').pop() || 'index.html';
     navLinks.forEach(link => {
-        link.addEventListener('click', () => {
-            navLinks.forEach(l => l.classList.remove('active'));
+        const linkPage = link.getAttribute('href');
+        if (linkPage === currentPage) {
             link.classList.add('active');
-            // Let the default <a> tag behavior handle navigation
-        });
+        }
     });
 
     // Card click handling
