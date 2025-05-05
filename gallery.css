@@ -320,6 +320,12 @@ body.dark-mode .about h3 {
     text-align: center;
     color: #333;
     text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.5);
+    position: sticky;
+    top: 60px;
+    background: rgba(51, 51, 51, 0.8);
+    padding: 1rem;
+    z-index: 1000;
+    backdrop-filter: blur(5px);
 }
 
 body.dark-mode .gallery-title {
@@ -417,5 +423,10 @@ body.dark-mode .gallery-item {
         flex-direction: column;
         gap: 0.5rem;
         right: 0.5rem;
+    }
+
+    .gallery-title {
+        top: 50px;
+        font-size: 1.5rem;
     }
 }
