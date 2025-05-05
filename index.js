@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const themeToggle = document.querySelector('.theme-toggle');
     const fontSelector = document.querySelector('#font-selector');
     const body = document.body;
+    const backgroundContainer = document.querySelector('#background-container');
 
     // Background slideshow
     const backgrounds = [
@@ -11,25 +12,36 @@ document.addEventListener('DOMContentLoaded', () => {
         'https://images.unsplash.com/photo-1519681393784-d120267933ba?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80',
         'https://images.unsplash.com/photo-1446329813274-7c9036bd9a1f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80'
     ];
+
+    // Preload images to avoid delays
+    backgrounds.forEach(src => {
+        const img = new Image();
+        img.src = src;
+    });
+
     let currentBackground = 0;
 
     function changeBackground() {
-        body.style.backgroundImage = `url('${backgrounds[currentBackground]}')`;
-        body.style.animation = 'none';
+        backgroundContainer.style.opacity = 0;
         setTimeout(() => {
-            body.style.animation = 'backgroundFade 10s ease-in-out';
-        }, 50);
-        currentBackground = (currentBackground + 1) % backgrounds.length;
+            backgroundContainer.style.backgroundImage = `url('${backgrounds[currentBackground]}')`;
+            backgroundContainer.style.opacity = 1;
+            currentBackground = (currentBackground + 1) % backgrounds.length;
+        }, 1000); // Match CSS transition duration
     }
 
-    changeBackground();
+    // Initial background
+    backgroundContainer.style.backgroundImage = `url('${backgrounds[currentBackground]}')`;
+    currentBackground = (currentBackground + 1) % backgrounds.length;
     setInterval(changeBackground, 10000);
 
     // Highlight active navigation link
     navLinks.forEach(link => {
         link.addEventListener('click', (e) => {
+            e.preventDefault(); // Prevent default to test locally; remove in production
             navLinks.forEach(l => l.classList.remove('active'));
             link.classList.add('active');
+            // Uncomment in production: window.location.href = link.href;
         });
     });
 
