@@ -57,7 +57,7 @@ body.dark-mode .background-container::before {
 }
 
 .header {
-    background: linear-gradient(135deg, rgba(0, 128, 128, 0.85) 0%, rgba(39, 107, 179, 0.85) 100%);
+    background: rgba(51, 51, 51, 0.8);
     padding: 1rem;
     text-align: center;
     box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
@@ -146,7 +146,7 @@ body.dark-mode .background-container::before {
 }
 
 .card {
-    background: rgba(255, 255, 255, 0.7);
+    background: rgba(255, 255, 255, 0.4);
     border-radius: 15px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
     display: flex;
@@ -183,20 +183,21 @@ body.dark-mode .card {
 .card h3 {
     padding: 1rem;
     font-size: 1.4rem;
-    color: #276bb3;
+    color: #333;
     text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.5);
 }
 
 body.dark-mode .card h3 {
-    color: #81b0ff;
+    color: #fff;
     text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
 }
 
 .card p {
     padding: 0 1rem 1rem;
     font-size: 1rem;
-    color: #444;
+    color: #111;
     flex-grow: 1;
+    text-shadow: 0 0 1px rgba(255, 255, 255, 0.5);
 }
 
 body.dark-mode .card p {
@@ -209,7 +210,7 @@ body.dark-mode .card p {
     justify-content: space-between;
     padding: 0.7rem 1.2rem;
     margin: 0 1rem 1rem;
-    background: linear-gradient(135deg, #008080 0%, #276bb3 100%);
+    background: rgba(51, 51, 51, 0.8);
     color: #fff;
     text-decoration: none;
     border-radius: 50px;
@@ -219,7 +220,7 @@ body.dark-mode .card p {
 }
 
 .card-link:hover {
-    background: linear-gradient(135deg, #009999 0%, #3b82cc 100%);
+    background: rgba(51, 51, 51, 0.9);
     transform: translateY(-2px);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
@@ -229,7 +230,7 @@ body.dark-mode .card p {
 }
 
 .about {
-    background: rgba(255, 255, 255, 0.7);
+    background: rgba(255, 255, 255, 0.4);
     padding: 2.5rem;
     border-radius: 15px;
     text-align: center;
@@ -253,19 +254,19 @@ body.dark-mode .about {
 .about h3 {
     font-size: 1.8rem;
     margin-bottom: 1rem;
-    color: #276bb3;
+    color: #333;
     text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.5);
 }
 
 body.dark-mode .about h3 {
-    color: #81b0ff;
+    color: #fff;
     text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
 }
 
 .cta-button {
     display: inline-block;
     padding: 0.8rem 1.8rem;
-    background: linear-gradient(135deg, #008080 0%, #276bb3 100%);
+    background: rgba(51, 51, 51, 0.8);
     color: #fff;
     text-decoration: none;
     border-radius: 50px;
@@ -276,7 +277,7 @@ body.dark-mode .about h3 {
 }
 
 .cta-button:hover {
-    background: linear-gradient(135deg, #009999 0%, #3b82cc 100%);
+    background: rgba(51, 51, 51, 0.9);
     transform: scale(1.05);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
