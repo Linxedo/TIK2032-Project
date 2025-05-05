@@ -1,41 +1,16 @@
 document.addEventListener('DOMContentLoaded', () => {
     const navLinks = document.querySelectorAll('.nav-link');
-    const pageTitle = document.getElementById('page-title');
-    const welcomeMsg = document.getElementById('welcome-msg');
     const cards = document.querySelectorAll('.card');
     const themeToggle = document.querySelector('.theme-toggle');
     const body = document.body;
 
-    // Navigation handling
+    // Highlight active navigation link
     navLinks.forEach(link => {
         link.addEventListener('click', (e) => {
-            e.preventDefault();
             navLinks.forEach(l => l.classList.remove('active'));
             link.classList.add('active');
-
-            const page = link.getAttribute('data-page');
-            updatePageContent(page);
         });
     });
-
-    // Update page content based on navigation
-    function updatePageContent(page) {
-        const titles = {
-            home: 'Selamat Datang',
-            gallery: 'Galeri Foto',
-            blog: 'Artikel Blog',
-            contact: 'Hubungi Kami'
-        };
-        const messages = {
-            home: 'Jelajahi dunia fotografi, teknologi, dan inspirasi bersama kami!',
-            gallery: 'Lihat koleksi foto terbaik kami.',
-            blog: 'Baca artikel menarik dan informatif.',
-            contact: 'Kami siap menjawab pertanyaan Anda!'
-        };
-
-        pageTitle.textContent = titles[page] || 'Selamat Datang';
-        welcomeMsg.textContent = messages[page] || 'Jelajahi dunia fotografi, teknologi, dan inspirasi bersama kami!';
-    }
 
     // Card click handling
     cards.forEach(card => {
