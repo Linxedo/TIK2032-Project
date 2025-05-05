@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
     const navLinks = document.querySelectorAll('.nav-link');
-    const cards = document.querySelectorAll('.card');
+    const galleryItems = document.querySelectorAll('.gallery-item');
     const themeToggle = document.querySelector('.theme-toggle');
     const fontSelector = document.querySelector('#font-selector');
     const body = document.body;
@@ -49,12 +49,18 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
     
-    // Card click handling
-    cards.forEach(card => {
-        card.addEventListener('click', (e) => {
-            if (e.target.classList.contains('card-link')) return;
-            const link = card.querySelector('.card-link').href;
-            if (link) window.location.href = link;
+    // Add hover effects and animations to gallery items
+    galleryItems.forEach(item => {
+        // Apply staggered animation delay for nice entrance effect
+        const index = Array.from(galleryItems).indexOf(item);
+        item.style.animationDelay = `${index * 0.15}s`;
+        
+        // Optional: Add click event to make items interactive
+        item.addEventListener('click', () => {
+            // You could implement a lightbox here or other functionality
+            // For now, just add a subtle effect
+            item.classList.add('pulse');
+            setTimeout(() => item.classList.remove('pulse'), 1000);
         });
     });
     
@@ -85,11 +91,4 @@ document.addEventListener('DOMContentLoaded', () => {
         body.style.fontFamily = `'${savedFont}', sans-serif`;
         fontSelector.value = savedFont;
     }
-    
-    // Smooth scroll for CTA button
-    document.querySelector('.cta-button').addEventListener('click', (e) => {
-        e.preventDefault();
-        const target = document.querySelector('.about');
-        if (target) target.scrollIntoView({ behavior: 'smooth' });
-    });
 });
