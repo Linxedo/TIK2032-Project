@@ -9,9 +9,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Background slideshow
     const backgrounds = [
-        'https://images6.alphacoders.com/488/488158.jpg',
-        'https://4kwallpapers.com/images/wallpapers/white-dog-mountains-lake-louise-clouds-pet-water-blue-5k-2560x1440-2432.jpg',
-        'https://images.unsplash.com/photo-1448518340475-e3c680e9b4be?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8bGFrZSUyMGxvdWlzZXxlbnwwfHwwfHx8MA%3D%3D'
+        'https://images.unsplash.com/photo-1504208434309-cb69f4fe52b0?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8ZG9nJTIwbGFuZHNjYXBlfGVufDB8fDB8fHww',
+        'https://images.unsplash.com/photo-1506104489822-562ca25152fe?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8NGslMjBuYXR1cmV8ZW58MHx8MHx8fDA%3D',
+        'https://wallpapercave.com/wp/wp2506819.jpg'
     ];
 
     // Preload images to avoid delays
