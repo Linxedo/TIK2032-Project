@@ -1,11 +1,11 @@
 document.addEventListener('DOMContentLoaded', () => {
     const navLinks = document.querySelectorAll('.nav-link');
-    const cards = document.querySelectorAll('.card');
     const themeToggle = document.querySelector('.theme-toggle');
     const fontSelector = document.querySelector('#font-selector');
     const body = document.body;
     const bgLayer1 = document.querySelector('#bg-layer-1');
     const bgLayer2 = document.querySelector('#bg-layer-2');
+    const articlesContainer = document.querySelector('#articles-container');
 
     // Background slideshow
     const backgrounds = [
@@ -39,22 +39,13 @@ document.addEventListener('DOMContentLoaded', () => {
     currentBackground = (currentBackground + 1) % backgrounds.length;
     setInterval(changeBackground, 10000);
 
-    // Set active navigation link based on current page
-    const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+    // Set active navigation link
+    const currentPage = window.location.pathname.split('/').pop() || 'blog.html';
     navLinks.forEach(link => {
         const linkPage = link.getAttribute('href');
         if (linkPage === currentPage) {
             link.classList.add('active');
         }
-    });
-
-    // Card click handling
-    cards.forEach(card => {
-        card.addEventListener('click', (e) => {
-            if (e.target.classList.contains('card-link')) return;
-            const link = card.querySelector('.card-link').href;
-            if (link) window.location.href = link;
-        });
     });
 
     // Theme toggle
@@ -85,10 +76,68 @@ document.addEventListener('DOMContentLoaded', () => {
         fontSelector.value = savedFont;
     }
 
-    // Smooth scroll for CTA button
-    document.querySelector('.cta-button').addEventListener('click', (e) => {
-        e.preventDefault();
-        const target = document.querySelector('.about');
-        if (target) target.scrollIntoView({ behavior: 'smooth' });
-    });
+    // Simulated database of articles
+    const articles = [
+        {
+            id: 1,
+            title: 'Masa Depan Kecerdasan Buatan',
+            category: 'Teknologi',
+            date: '2025-05-01',
+            image: 'https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=compress&cs=tinysrgb&h=300',
+            content: `
+                Kecerdasan buatan (AI) telah berkembang pesat dalam beberapa tahun terakhir, mengubah cara kita berinteraksi dengan teknologi. Dari asisten virtual hingga mobil otonom, AI kini menjadi bagian integral dari kehidupan sehari-hari. Salah satu tren terbesar adalah kemajuan dalam pembelajaran mesin, yang memungkinkan sistem untuk belajar dari data tanpa pemrograman eksplisit.
+
+                Namun, ada tantangan besar yang menyertai perkembangan ini, termasuk isu etika, privasi, dan potensi pengangguran akibat otomatisasi. Para peneliti sedang bekerja untuk menciptakan AI yang lebih transparan dan bertanggung jawab, memastikan bahwa teknologi ini memberikan manfaat tanpa menimbulkan risiko yang tidak perlu.
+
+                Di masa depan, kita dapat mengharapkan AI yang lebih terintegrasi dengan kehidupan kita, seperti sistem kesehatan yang dapat mendiagnosis penyakit dengan akurasi tinggi atau kota pintar yang mengoptimalkan penggunaan energi. Penting bagi kita untuk memahami dan mengatur teknologi ini agar dapat digunakan secara bijaksana.
+            `
+        },
+        {
+            id: 2,
+            title: 'Seni Digital di Era Modern',
+            category: 'Seni',
+            date: '2025-04-28',
+            image: 'https://images.pexels.com/photos/1591373/pexels-photo-1591373.jpeg?auto=compress&cs=tinysrgb&h=300',
+            content: `
+                Seni digital telah merevolusi dunia kreativitas, memberikan seniman alat baru untuk mengekspresikan ide mereka. Dengan perangkat lunak seperti Adobe Photoshop, Procreate, dan Blender, seniman dapat menciptakan karya yang sebelumnya tidak mungkin dilakukan dengan media tradisional. Teknologi seperti augmented reality (AR) dan virtual reality (VR) juga membuka peluang baru untuk pengalaman seni interaktif.
+
+                Salah satu perkembangan menarik adalah munculnya NFT (Non-Fungible Tokens), yang memungkinkan seniman untuk menjual karya digital mereka dengan bukti kepemilikan di blockchain. Meskipun kontroversial, NFT telah mengubah cara kita memandang nilai seni digital.
+
+                Namun, seni digital juga menghadapi tantangan, seperti isu plagiarisme dan keberlanjutan lingkungan akibat konsumsi energi blockchain. Seniman masa kini harus menyeimbangkan kreativitas dengan tanggung jawab sosial untuk memastikan seni tetap menjadi kekuatan positif di masyarakat.
+            `
+        },
+        {
+            id: 3,
+            title: 'Strategi Latihan untuk Marathon',
+            category: 'Olahraga',
+            date: '2025-04-25',
+            image: 'https://images.pexels.com/photos/40751/running-runner-long-distance-fitness-40751.jpeg?auto=compress&cs=tinysrgb&h=300',
+            content: `
+                Berlari marathon adalah tantangan fisik dan mental yang membutuhkan persiapan matang. Untuk berhasil, pelari harus mengikuti rencana latihan yang terstruktur, yang mencakup lari jarak jauh, latihan interval, dan pemulihan aktif. Biasanya, rencana latihan selama 12-16 minggu diperlukan untuk membangun daya tahan.
+
+                Nutrisi juga memainkan peran penting. Pelari harus mengonsumsi karbohidrat kompleks untuk energi, protein untuk pemulihan otot, dan tetap terhidrasi. Selama latihan, penting untuk mendengarkan tubuh dan menghindari overtraining, yang dapat menyebabkan cedera.
+
+                Selain itu, persiapan mental sangat krusial. Visualisasi, meditasi, dan menetapkan tujuan kecil dapat membantu pelari tetap termotivasi. Pada hari perlombaan, strategi seperti pacing (mengatur kecepatan) dan manajemen energi akan menentukan keberhasilan menyelesaikan 42,2 kilometer dengan baik.
+            `
+        }
+    ];
+
+    // Function to render articles
+    function renderArticles() {
+        articlesContainer.innerHTML = '';
+        articles.forEach(article => {
+            const articleElement = document.createElement('div');
+            articleElement.classList.add('article-card');
+            articleElement.innerHTML = `
+                <img src="${article.image}" alt="${article.title}" />
+                <h3>${article.title}</h3>
+                <div class="article-meta">Kategori: ${article.category} | Tanggal: ${article.date}</div>
+                <div class="article-content">${article.content.trim().split('\n').map(paragraph => `<p>${paragraph.trim()}</p>`).join('')}</div>
+            `;
+            articlesContainer.appendChild(articleElement);
+        });
+    }
+
+    // Render articles on page load
+    renderArticles();
 });
