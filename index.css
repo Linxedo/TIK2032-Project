@@ -1,130 +1,42 @@
-/* Base styles */
 body {
-    font-family: 'Arial', sans-serif;
+    font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f5f5f5;
-    color: #333;
-    line-height: 1.6;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
 }
 
-/* Header table */
-table:first-of-type {
-    width: 100%;
-    padding: 20px;
-    background-color: #4CAF50; /* Changed to a vibrant color */
-    color: white; /* Text color for header */
-    border-bottom: 2px solid #e0e0e0;
+nav {
+    background-color: #333;
+    padding: 10px;
 }
 
-/* Navigation links */
-a {
-    color: #ffffff; /* White color for links in header */
+.nav-link {
+    color: white;
+    margin-right: 15px;
     text-decoration: none;
-    transition: color 0.3s ease; /* Smooth transition for hover effect */
 }
 
-a:hover {
-    color: #FFD700; /* Gold color on hover */
+.nav-link.active {
+    font-weight: bold;
     text-decoration: underline;
 }
 
-/* Section tables */
-table {
-    margin-bottom: 20px;
+#cardsContainer {
+    display: flex;
+    gap: 10px;
+    padding: 20px;
 }
 
-/* Content boxes */
-table[width="80%"] {
-    background-color: white;
-    border-radius: 10px; /* More rounded corners */
-    box-shadow: 0 4px 8px rgba(0,0,0,0.2); /* Deeper shadow for depth */
-    margin: 20px auto;
-    transition: transform 0.3s ease; /* Transition for hover effect */
+.card {
+    background-color: #eee;
+    padding: 20px;
+    cursor: pointer;
 }
 
-table[width="80%"]:hover {
-    transform: translateY(-5px); /* Lift effect on hover */
+#aboutSection {
+    padding: 20px;
 }
 
-/* Welcome section */
-table[width="80%"]:nth-of-type(1) h1 {
-    margin-top: 0;
-    color: #333;
-    font-size: 2em; /* Larger font size */
-}
-
-/* Content section */
-table[width="80%"]:nth-of-type(2) h2 {
-    margin-top: 0;
-    color: #333;
-    font-size: 1.5em; /* Larger font size */
-}
-
-/* Content columns */
-table[width="80%"]:nth-of-type(2) td[width="33%"] {
-    background-color: white;
-    border-radius: 10px; /* More rounded corners */
-    padding: 20px; /* Increased padding */
-    margin: 0 10px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    vertical-align: top;
-    transition: transform 0.3s ease; /* Transition for hover effect */
-}
-
-table[width="80%"]:nth-of-type(2) td[width="33%"]:hover {
-    transform: scale(1.05); /* Slightly enlarge on hover */
-}
-
-/* Column headings */
-table[width="80%"]:nth-of-type(2) h3 {
-    margin-top: 10px;
-    color: #333;
-}
-
-/* Images in columns */
-table[width="80%"]:nth-of-type(2) img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 5px; /* Slightly more rounded corners */
-}
-
-/* About section */
-table[width="80%"]:nth-of-type(3) {
-    background-color: white;
-    border-radius: 10px; /* More rounded corners */
-    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-}
-
-/* Footer */
-.footer {
-    background-color: #333;
-    color: white;
-    padding: 15px; /* Increased padding */
-    text-align: center;
-    position: fixed; 
-    bottom: 0; 
-    width: 100%; 
-    font-size: 0.9em; /* Slightly smaller font size */
-}
-
-/* Development notice */
-p:contains("Underdevelopment") {
-    color: #666;
-    font-style: italic;
-}
-
-/* Responsive styles */
-@media (max-width: 768px) {
-    table[width="80%"] {
-        width: 95%; /* Make tables more responsive */
-    }
-
-    table[width="80%"]:nth-of-type(2) td[width="33%"] {
-        width: 100%; /* Stack columns on smaller screens */
-        margin: 10px 0; /* Adjust margin for stacked layout */
-    }
+#welcomeMsg {
+    padding: 20px;
+    background-color: #f0f0f0;
 }
