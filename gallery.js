@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
         'https://images.unsplash.com/photo-1448518340475-e3c680e9b4be?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8bGFrZSUyMGxvdWlzZXxlbnwwfHwwfHx8MA%3D%3D'
     ];
 
-    // Preload images to avoid delays
+    // Preload background images
     backgrounds.forEach(src => {
         const img = new Image();
         img.src = src;
@@ -31,14 +31,14 @@ document.addEventListener('DOMContentLoaded', () => {
         currentBackground = (currentBackground + 1) % backgrounds.length;
     }
 
-    // Initialize first background
+    // Set initial background
     bgLayer1.style.backgroundImage = `url('${backgrounds[currentBackground]}')`;
     bgLayer1.style.opacity = '1';
     bgLayer2.style.opacity = '0';
     currentBackground = (currentBackground + 1) % backgrounds.length;
     setInterval(changeBackground, 10000);
 
-    // Highlight active navigation link
+    // Highlight active nav link
     navLinks.forEach(link => {
         link.addEventListener('click', () => {
             navLinks.forEach(l => l.classList.remove('active'));
@@ -74,7 +74,7 @@ document.addEventListener('DOMContentLoaded', () => {
         fontSelector.value = savedFont;
     }
 
-    // Lazy load images
+    // Lazy load and animate images
     const images = document.querySelectorAll('.gallery-item img');
     if ('IntersectionObserver' in window) {
         const observer = new IntersectionObserver((entries, observer) => {
@@ -82,6 +82,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (entry.isIntersecting) {
                     const img = entry.target;
                     img.src = img.dataset.src;
+                    img.classList.add('fade-in');
                     observer.unobserve(img);
                 }
             });
@@ -93,4 +94,15 @@ document.addEventListener('DOMContentLoaded', () => {
             observer.observe(img);
         });
     }
+
+    // Hover effect for gallery items
+    const galleryItems = document.querySelectorAll('.gallery-item');
+    galleryItems.forEach(item => {
+        item.addEventListener('mouseenter', () => {
+            item.classList.add('hovered');
+        });
+        item.addEventListener('mouseleave', () => {
+            item.classList.remove('hovered');
+        });
+    });
 });
