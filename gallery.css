@@ -202,9 +202,14 @@ body.dark-mode .gallery-item {
     padding: 15px;
     text-align: center;
     flex-grow: 1;
-    background: rgba(51, 51, 51, 0.8);
-    color: #fff;
+    background: rgba(255, 255, 255, 0.9); /* putih transparan */
+    color: #000;
     transition: background 0.3s;
+}
+
+body.dark-mode .gallery-caption {
+    background: rgba(44, 44, 44, 0.8);
+    color: #fff;
 }
 
 .gallery-caption h4 {
