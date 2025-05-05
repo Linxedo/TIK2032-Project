@@ -61,10 +61,10 @@ body.dark-mode .background-container::before {
 }
 
 .header {
-    background: #6200ea;
+    background: linear-gradient(135deg, #6200ea 0%, #03a9f4 100%);
     padding: 1rem;
     text-align: center;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
     position: sticky;
     top: 0;
     z-index: 1000;
@@ -92,7 +92,7 @@ body.dark-mode .background-container::before {
 }
 
 .nav-link:hover, .nav-link.active {
-    background: rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.3);
 }
 
 .customization-controls {
@@ -129,7 +129,7 @@ body.dark-mode .background-container::before {
 .main {
     padding-bottom: 80px;
     position: relative;
-    z-index: 1; /* Pastikan konten utama di atas background */
+    z-index: 1;
 }
 
 .content {
@@ -146,17 +146,19 @@ body.dark-mode .background-container::before {
 }
 
 .card {
-    background: #fff;
+    background: rgba(255, 255, 255, 0.9);
     border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
     display: flex;
     flex-direction: column;
     min-height: 400px;
     animation: fadeInUp 1s ease-out;
+    border: 1px solid rgba(98, 0, 234, 0.1);
 }
 
 body.dark-mode .card {
-    background: #2c2c2c;
+    background: rgba(44, 44, 44, 0.9);
+    border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .card img {
@@ -208,16 +210,18 @@ body.dark-mode .card p {
 }
 
 .about {
-    background: #fff;
+    background: rgba(255, 255, 255, 0.9);
     padding: 2rem;
     border-radius: 10px;
     text-align: center;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
     animation: fadeInUp 1.2s ease-out;
+    border: 1px solid rgba(98, 0, 234, 0.1);
 }
 
 body.dark-mode .about {
-    background: #2c2c2c;
+    background: rgba(44, 44, 44, 0.9);
+    border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .about h3 {
@@ -234,7 +238,7 @@ body.dark-mode .about {
     text-decoration: none;
     border-radius: 5px;
     margin-top: 1rem;
-    transition: background 0.3s;
+    transition: background 0.3s, transform 0.3s;
 }
 
 .cta-button:hover {
