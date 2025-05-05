@@ -11,7 +11,8 @@ body {
     background: url('https://images.unsplash.com/photo-1507521628349-dee6b874e9e1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80') no-repeat center center fixed;
     background-size: cover;
     position: relative;
-    min-height: 100vh; /* Ensure body takes full viewport height */
+    min-height: 100vh;
+    transition: color 0.3s;
 }
 
 body::before {
@@ -21,8 +22,16 @@ body::before {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(255, 255, 255, 0.85); /* Light overlay for readability */
+    background: rgba(255, 255, 255, 0.6); /* Reduced opacity for better background visibility */
     z-index: -1;
+}
+
+body.dark-mode {
+    color: #ddd;
+}
+
+body.dark-mode::before {
+    background: rgba(0, 0, 0, 0.5); /* Dark overlay for dark mode */
 }
 
 .header {
@@ -30,6 +39,9 @@ body::before {
     padding: 1rem;
     text-align: center;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 }
 
 .logo h1 {
@@ -57,6 +69,22 @@ body::before {
     background: rgba(255, 255, 255, 0.2);
 }
 
+.theme-toggle {
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 1.2rem;
+    cursor: pointer;
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    transition: transform 0.3s;
+}
+
+.theme-toggle:hover {
+    transform: rotate(360deg);
+}
+
 .main {
     padding-bottom: 80px; /* Space for footer */
 }
@@ -80,7 +108,12 @@ body::before {
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     display: flex;
     flex-direction: column;
-    min-height: 400px; /* Ensure consistent height */
+    min-height: 400px;
+    animation: fadeInUp 1s ease-out;
+}
+
+body.dark-mode .card {
+    background: #2c2c2c;
 }
 
 .card img {
@@ -101,7 +134,11 @@ body::before {
     padding: 0 1rem 1rem;
     font-size: 1rem;
     color: #666;
-    flex-grow: 1; /* Push link to bottom */
+    flex-grow: 1;
+}
+
+body.dark-mode .card p {
+    color: #bbb;
 }
 
 .card-link {
@@ -115,11 +152,12 @@ body::before {
     text-decoration: none;
     border-radius: 5px;
     font-weight: 500;
-    transition: background 0.3s;
+    transition: background 0.3s, transform 0.3s;
 }
 
 .card-link:hover {
     background: #0288d1;
+    transform: translateY(-2px);
 }
 
 .card-link i {
@@ -132,6 +170,11 @@ body::before {
     border-radius: 10px;
     text-align: center;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    animation: fadeInUp 1.2s ease-out;
+}
+
+body.dark-mode .about {
+    background: #2c2c2c;
 }
 
 .about h3 {
@@ -153,6 +196,7 @@ body::before {
 
 .cta-button:hover {
     background: #0288d1;
+    transform: scale(1.05);
 }
 
 .footer {
@@ -164,6 +208,7 @@ body::before {
     bottom: 0;
     width: 100%;
     border-top: 1px solid #444;
+    z-index: 10;
 }
 
 .footer p {
@@ -179,6 +224,17 @@ body::before {
 
 .social-links a:hover {
     color: #03a9f4;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 @media (max-width: 768px) {
