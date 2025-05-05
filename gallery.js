@@ -1,6 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
     const navLinks = document.querySelectorAll('.nav-link');
-    const galleryItems = document.querySelectorAll('.gallery-item');
     const themeToggle = document.querySelector('.theme-toggle');
     const fontSelector = document.querySelector('#font-selector');
     const body = document.body;
@@ -44,7 +43,6 @@ document.addEventListener('DOMContentLoaded', () => {
         link.addEventListener('click', () => {
             navLinks.forEach(l => l.classList.remove('active'));
             link.classList.add('active');
-            // Let the default <a> tag behavior handle navigation
         });
     });
 
@@ -76,15 +74,23 @@ document.addEventListener('DOMContentLoaded', () => {
         fontSelector.value = savedFont;
     }
 
-    // Gallery item hover effect
-    galleryItems.forEach(item => {
-        item.addEventListener('mouseenter', () => {
-            const caption = item.querySelector('.gallery-caption');
-            if (caption) caption.style.opacity = '1';
+    // Lazy load images
+    const images = document.querySelectorAll('.gallery-item img');
+    if ('IntersectionObserver' in window) {
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const img = entry.target;
+                    img.src = img.dataset.src;
+                    observer.unobserve(img);
+                }
+            });
         });
-        item.addEventListener('mouseleave', () => {
-            const caption = item.querySelector('.gallery-caption');
-            if (caption) caption.style.opacity = '0';
+
+        images.forEach(img => {
+            img.dataset.src = img.src;
+            img.src = '';
+            observer.observe(img);
         });
-    });
+    }
 });
