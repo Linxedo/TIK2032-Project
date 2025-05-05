@@ -276,12 +276,132 @@ body.dark-mode .about h3 {
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     font-weight: 500;
     border: none;
+    cursor: pointer;
 }
 
 .cta-button:hover {
     background: rgba(51, 51, 51, 0.9);
     transform: scale(1.05);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.contact-container {
+    background: rgba(255, 255, 255, 0.4);
+    padding: 2.5rem;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    animation: fadeInUp 1.2s ease-out;
+    border: none;
+    backdrop-filter: blur(10px);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.contact-container:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+body.dark-mode .contact-container {
+    background: rgba(44, 44, 44, 0.7);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.contact-container h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: #333;
+    text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.5);
+}
+
+body.dark-mode .contact-container h2 {
+    color: #fff;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
+}
+
+.contact-container p {
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+    color: #111;
+    text-shadow: 0 0 1px rgba(255, 255, 255, 0.5);
+}
+
+body.dark-mode .contact-container p {
+    color: #ccc;
+}
+
+.form-card {
+    background: rgba(255, 255, 255, 0.4);
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    padding: 2rem;
+    max-width: 600px;
+    margin: 0 auto;
+    backdrop-filter: blur(10px);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+body.dark-mode .form-card {
+    background: rgba(44, 44, 44, 0.7);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.form-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+    text-align: left;
+}
+
+.form-group label {
+    display: block;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+    color: #333;
+    text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.5);
+}
+
+body.dark-mode .form-group label {
+    color: #fff;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 0.8rem;
+    border: none;
+    border-radius: 5px;
+    background: rgba(255, 255, 255, 0.8);
+    color: #333;
+    font-size: 1rem;
+    transition: background 0.3s, box-shadow 0.3s;
+}
+
+body.dark-mode .form-group input,
+body.dark-mode .form-group textarea {
+    background: rgba(44, 44, 44, 0.8);
+    color: #ddd;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    background: rgba(255, 255, 255, 1);
+}
+
+body.dark-mode .form-group input:focus,
+body.dark-mode .form-group textarea:focus {
+    background: rgba(66, 66, 66, 1);
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 100px;
 }
 
 .footer {
@@ -343,5 +463,13 @@ body.dark-mode .about h3 {
         flex-direction: column;
         gap: 0.5rem;
         right: 0.5rem;
+    }
+
+    .contact-container {
+        padding: 1.5rem;
+    }
+
+    .form-card {
+        padding: 1.5rem;
     }
 }
