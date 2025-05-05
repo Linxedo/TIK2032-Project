@@ -1,156 +1,47 @@
-<!DOCTYPE html>
-<html lang="id">
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>My Website - Galeri</title>
-    <link rel="stylesheet" href="index.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
-    <link href="https://fonts.googleapis.com/css2?family=Roboto&family=Open+Sans&family=Lora&display=swap" rel="stylesheet" />
-    <style>
-        .gallery-container {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
-            padding: 20px;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        .gallery-item {
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            overflow: hidden;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-            display: flex;
-            flex-direction: column;
-        }
-        .gallery-item img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-            loading: lazy;
-        }
-        .gallery-caption {
-            padding: 10px;
-            text-align: center;
-            flex-grow: 1;
-            background: rgba(51, 51, 51, 0.8);
-            color: #fff;
-        }
-        .background-container {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-        }
-        .background-layer {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-size: cover;
-            background-position: center;
-            opacity: 0.3;
-        }
-        @media (max-width: 768px) {
-            .gallery-container {
-                grid-template-columns: 1fr;
-            }
-            .gallery-item img {
-                height: 300px;
-            }
-        }
-    </style>
-</head>
-<body>
-    <div class="background-container" id="background-container">
-        <div class="background-layer" id="bg-layer-1" style="background-image: url('https://images.pexels.com/photos/1254140/pexels-photo-1254140.jpeg?auto=compress&cs=tinysrgb&h=300');"></div>
-        <div class="background-layer" id="bg-layer-2" style="background-image: url('https://images.pexels.com/photos/417173/pexels-photo-417173.jpeg?auto=compress&cs=tinysrgb&h=300');"></div>
-    </div>
-    <header class="header">
-        <div class="logo">
-            <h1>Steve</h1>
-        </div>
-        <nav class="nav">
-            <a href="index.html" class="nav-link">Home</a>
-            <a href="#" class="nav-link active">Gallery</a>
-            <a href="blog.html" class="nav-link">Blog</a>
-            <a href="contact.html" class="nav-link">Contact</a>
-        </nav>
-        <div class="customization-controls">
-            <select id="font-selector" aria-label="Select font">
-                <option value="Roboto">Roboto</option>
-                <option value="Open Sans">Open Sans</option>
-                <option value="Lora">Lora</option>
-            </select>
-            <button class="theme-toggle" aria-label="Toggle dark mode">
-                <i class="fas fa-moon"></i>
-            </button>
-        </div>
-    </header>
-
-    <main class="main">
-        <section class="content">
-            <h2 class="gallery-title">Galeri Foto</h2>
-            <div class="gallery-container">
+<div class="gallery-container">
+                <!-- Baris 1: Maksimal 3 foto -->
                 <div class="gallery-item">
-                    <img src="https://images.pexels.com/photos/1108099/pexels-photo-1108099.jpeg?auto=compress&cs=tinysrgb&h=300" alt="Anjing di Taman" />
+                    <img src="/api/placeholder/400/300" alt="Anjing di Taman" />
                     <div class="gallery-caption">
                         <h4>Anjing di Taman</h4>
                         <p>Foto anjing bermain di taman pada sore hari.</p>
                     </div>
                 </div>
                 <div class="gallery-item">
-                    <img src="https://images.pexels.com/photos/1254140/pexels-photo-1254140.jpeg?auto=compress&cs=tinysrgb&h=300" alt="Pemandangan Pegunungan" />
+                    <img src="/api/placeholder/400/300" alt="Pemandangan Pegunungan" />
                     <div class="gallery-caption">
                         <h4>Pemandangan Pegunungan</h4>
                         <p>Keindahan alam pegunungan yang menakjubkan.</p>
                     </div>
                 </div>
                 <div class="gallery-item">
-                    <img src="https://images.pexels.com/photos/34950/pexels-photo.jpg?auto=compress&cs=tinysrgb&h=300" alt="Matahari Terbenam" />
+                    <img src="/api/placeholder/400/300" alt="Matahari Terbenam" />
                     <div class="gallery-caption">
                         <h4>Matahari Terbenam</h4>
                         <p>Pemandangan matahari terbenam di pantai.</p>
                     </div>
                 </div>
+                
+                <!-- Baris 2: Maksimal 3 foto -->
                 <div class="gallery-item">
-                    <img src="https://images.pexels.com/photos/462118/pexels-photo-462118.jpeg?auto=compress&cs=tinysrgb&h=300" alt="Bunga Sakura" />
+                    <img src="/api/placeholder/400/300" alt="Bunga Sakura" />
                     <div class="gallery-caption">
                         <h4>Bunga Sakura</h4>
                         <p>Mekarnya bunga sakura di musim semi.</p>
                     </div>
                 </div>
                 <div class="gallery-item">
-                    <img src="https://images.pexels.com/photos/417173/pexels-photo-417173.jpeg?auto=compress&cs=tinysrgb&h=300" alt="Danau di Pegunungan" />
+                    <img src="/api/placeholder/400/300" alt="Danau di Pegunungan" />
                     <div class="gallery-caption">
                         <h4>Danau di Pegunungan</h4>
                         <p>Danau yang tenang dikelilingi pegunungan.</p>
                     </div>
                 </div>
                 <div class="gallery-item">
-                    <img src="https://images.pexels.com/photos/443446/pexels-photo-443446.jpeg?auto=compress&cs=tinysrgb&h=300" alt="Hutan Berkabut" />
+                    <img src="/api/placeholder/400/300" alt="Hutan Berkabut" />
                     <div class="gallery-caption">
                         <h4>Hutan Berkabut</h4>
                         <p>Misteri hutan yang diselimuti kabut pagi.</p>
                     </div>
                 </div>
             </div>
-        </section>
-    </main>
-
-    <footer class="footer">
-        <p>© Steve 2025</p>
-        <div class="social-links">
-            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-            <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-            <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-        </div>
-    </footer>
-
-    <script src="gallery.js"></script>
-</body>
-</html>
