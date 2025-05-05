@@ -9,9 +9,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Background slideshow
     const backgrounds = [
-        'https://4kwallpapers.com/images/wallpapers/white-dog-mountains-lake-louise-clouds-pet-water-blue-5k-2560x1440-2432.jpg',
-        'https://wallpapers.com/images/hd/2440x1440-nature-background-z6t44psuemi6tkc2.jpg',
-        'https://www.itl.cat/pngfile/big/14-145567_beautiful-highresolution-desktop-wallpapers-25601440-nature-ultra-hd.jpg'
+        'https://images.unsplash.com/photo-1448518340475-e3c680e9b4be?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8bGFrZSUyMGxvdWlzZXxlbnwwfHwwfHx8MA%3D%3D',
+        'https://images6.alphacoders.com/488/488158.jpg',
+        'https://4kwallpapers.com/images/wallpapers/white-dog-mountains-lake-louise-clouds-pet-water-blue-5k-2560x1440-2432.jpg'
     ];
 
     // Preload images to avoid delays
