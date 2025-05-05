@@ -71,22 +71,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Load saved font
     const savedFont = localStorage.getItem('font');
-    if savedFont) {
+    if (savedFont) {
         body.style.fontFamily = `'${savedFont}', sans-serif`;
         fontSelector.value = savedFont;
     }
 
-    // Form submission handling
+    // Contact form submission
     contactForm.addEventListener('submit', (e) => {
         e.preventDefault();
-        const formData = new FormData(contactForm);
-        const data = {
-            name: formData.get('name'),
-            email: formData.get('email'),
-            message: formData.get('message')
-        };
-        console.log('Form submitted:', data);
-        alert('Pesan Anda telah dikirim!');
+        alert('Pesan telah dikirim! Kami akan segera menghubungi Anda.');
         contactForm.reset();
     });
 });
