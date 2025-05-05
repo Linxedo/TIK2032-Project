@@ -7,33 +7,35 @@ document.addEventListener('DOMContentLoaded', () => {
     const bgLayer1 = document.querySelector('#bg-layer-1');
     const bgLayer2 = document.querySelector('#bg-layer-2');
 
-    // Background slideshow images
+    // Optimized background images (smaller size)
     const backgrounds = [
-        'https://images.unsplash.com/photo-1507521628349-dee6b874e9e1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80',
-        'https://images.unsplash.com/photo-1519681393784-d120267933ba?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80',
-        'https://images.unsplash.com/photo-1446329813274-7c9036bd9a1f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80'
+        'https://images.unsplash.com/photo-1507521628349-dee6b874e9e1?w=1000&auto=format&fit=crop&q=70',
+        'https://images.unsplash.com/photo-1519681393784-d120267933ba?w=1000&auto=format&fit=crop&q=70',
+        'https://images.unsplash.com/photo-1446329813274-7c9036bd9a1f?w=1000&auto=format&fit=crop&q=70'
     ];
 
-    // Ensure initial state: bg-layer-1 is visible, bg-layer-2 is hidden
-    bgLayer1.style.opacity = '1';
-    bgLayer2.style.opacity = '0';
+    let currentBackground = 1;
+    let activeLayer = bgLayer1;
 
-    // Preload images with Promise
+    // Langsung tampilkan background pertama
+    bgLayer1.style.backgroundImage = `url('${backgrounds[0]}')`;
+    bgLayer1.style.opacity = '1';
+    bgLayer1.classList.add('transition-enabled');
+    bgLayer2.classList.add('transition-enabled');
+
+    // Preload all images for smooth transition
     const preloadImages = () => {
         return Promise.all(backgrounds.map(src => {
-            return new Promise((resolve, reject) => {
+            return new Promise(resolve => {
                 const img = new Image();
                 img.src = src;
                 img.onload = resolve;
-                img.onerror = resolve; // Continue even if an image fails
+                img.onerror = resolve;
             });
         }));
     };
 
-    // Slideshow logic
-    let currentBackground = 1;
-    let activeLayer = bgLayer1;
-
+    // Ganti background dengan fade effect
     function changeBackground() {
         const nextLayer = activeLayer === bgLayer1 ? bgLayer2 : bgLayer1;
         nextLayer.style.backgroundImage = `url('${backgrounds[currentBackground]}')`;
@@ -43,35 +45,31 @@ document.addEventListener('DOMContentLoaded', () => {
         currentBackground = (currentBackground + 1) % backgrounds.length;
     }
 
-    // Start slideshow after images are preloaded
+    // Start slideshow setelah preload
     preloadImages().then(() => {
-        // Enable transitions after preload
-        bgLayer1.classList.add('transition-enabled');
-        bgLayer2.classList.add('transition-enabled');
-        // Start slideshow
         setInterval(changeBackground, 10000);
     });
 
-    // Highlight active navigation link
+    // Navigasi aktif
     navLinks.forEach(link => {
         link.addEventListener('click', (e) => {
-            e.preventDefault(); // For testing; remove in production
+            e.preventDefault(); // Untuk testing
             navLinks.forEach(l => l.classList.remove('active'));
             link.classList.add('active');
-            // Uncomment in production: window.location.href = link.href;
+            // window.location.href = link.href; // Uncomment untuk produksi
         });
     });
 
-    // Card click handling
+    // Klik kartu = buka link
     cards.forEach(card => {
         card.addEventListener('click', (e) => {
             if (e.target.classList.contains('card-link')) return;
-            const link = card.querySelector('.card-link').href;
+            const link = card.querySelector('.card-link')?.href;
             if (link) window.location.href = link;
         });
     });
 
-    // Theme toggle
+    // Toggle dark mode
     themeToggle.addEventListener('click', () => {
         body.classList.toggle('dark-mode');
         const isDark = body.classList.contains('dark-mode');
@@ -86,23 +84,26 @@ document.addEventListener('DOMContentLoaded', () => {
         themeToggle.innerHTML = `<i class="fas fa-sun"></i>`;
     }
 
-    // Font selection
+    // Ganti font dari select
     fontSelector.addEventListener('change', (e) => {
         body.style.fontFamily = `'${e.target.value}', sans-serif`;
         localStorage.setItem('font', e.target.value);
     });
 
-    // Load saved font
+    // Load font tersimpan
     const savedFont = localStorage.getItem('font');
     if (savedFont) {
         body.style.fontFamily = `'${savedFont}', sans-serif`;
         fontSelector.value = savedFont;
     }
 
-    // Smooth scroll for CTA button
-    document.querySelector('.cta-button').addEventListener('click', (e) => {
-        e.preventDefault();
-        const target = document.querySelector('.about');
-        if (target) target.scrollIntoView({ behavior: 'smooth' });
-    });
+    // Smooth scroll CTA
+    const ctaBtn = document.querySelector('.cta-button');
+    if (ctaBtn) {
+        ctaBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            const target = document.querySelector('.about');
+            if (target) target.scrollIntoView({ behavior: 'smooth' });
+        });
+    }
 });
