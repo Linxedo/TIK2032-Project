@@ -1,13 +1,11 @@
 /* Base styles */
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Arial', sans-serif;
     margin: 0;
     padding: 0;
     background-color: #f5f5f5;
     color: #333;
-    line-height: 1.4;
-
-    /* Flexbox to allow footer push */
+    line-height: 1.6;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
@@ -16,18 +14,21 @@ body {
 /* Header table */
 table:first-of-type {
     width: 100%;
-    padding: 10px 20px;
-    background-color: #f8f8f8;
-    border-bottom: 1px solid #e0e0e0;
+    padding: 20px;
+    background-color: #4CAF50; /* Changed to a vibrant color */
+    color: white; /* Text color for header */
+    border-bottom: 2px solid #e0e0e0;
 }
 
 /* Navigation links */
 a {
-    color: #0066cc;
+    color: #ffffff; /* White color for links in header */
     text-decoration: none;
+    transition: color 0.3s ease; /* Smooth transition for hover effect */
 }
 
 a:hover {
+    color: #FFD700; /* Gold color on hover */
     text-decoration: underline;
 }
 
@@ -39,31 +40,43 @@ table {
 /* Content boxes */
 table[width="80%"] {
     background-color: white;
-    border-radius: 5px;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    border-radius: 10px; /* More rounded corners */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2); /* Deeper shadow for depth */
     margin: 20px auto;
+    transition: transform 0.3s ease; /* Transition for hover effect */
+}
+
+table[width="80%"]:hover {
+    transform: translateY(-5px); /* Lift effect on hover */
 }
 
 /* Welcome section */
 table[width="80%"]:nth-of-type(1) h1 {
     margin-top: 0;
     color: #333;
+    font-size: 2em; /* Larger font size */
 }
 
 /* Content section */
 table[width="80%"]:nth-of-type(2) h2 {
     margin-top: 0;
     color: #333;
+    font-size: 1.5em; /* Larger font size */
 }
 
 /* Content columns */
 table[width="80%"]:nth-of-type(2) td[width="33%"] {
     background-color: white;
-    border-radius: 5px;
-    padding: 15px;
+    border-radius: 10px; /* More rounded corners */
+    padding: 20px; /* Increased padding */
     margin: 0 10px;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     vertical-align: top;
+    transition: transform 0.3s ease; /* Transition for hover effect */
+}
+
+table[width="80%"]:nth-of-type(2) td[width="33%"]:hover {
+    transform: scale(1.05); /* Slightly enlarge on hover */
 }
 
 /* Column headings */
@@ -76,29 +89,42 @@ table[width="80%"]:nth-of-type(2) h3 {
 table[width="80%"]:nth-of-type(2) img {
     max-width: 100%;
     height: auto;
-    border-radius: 3px;
+    border-radius: 5px; /* Slightly more rounded corners */
 }
 
 /* About section */
 table[width="80%"]:nth-of-type(3) {
     background-color: white;
-    border-radius: 5px;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    border-radius: 10px; /* More rounded corners */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
 }
 
 /* Footer */
 .footer {
     background-color: #333;
     color: white;
-    padding: 10px;
+    padding: 15px; /* Increased padding */
     text-align: center;
     position: fixed; 
     bottom: 0; 
     width: 100%; 
+    font-size: 0.9em; /* Slightly smaller font size */
 }
 
 /* Development notice */
 p:contains("Underdevelopment") {
     color: #666;
     font-style: italic;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    table[width="80%"] {
+        width: 95%; /* Make tables more responsive */
+    }
+
+    table[width="80%"]:nth-of-type(2) td[width="33%"] {
+        width: 100%; /* Stack columns on smaller screens */
+        margin: 10px 0; /* Adjust margin for stacked layout */
+    }
 }
