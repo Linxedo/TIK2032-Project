@@ -39,13 +39,12 @@ document.addEventListener('DOMContentLoaded', () => {
     currentBackground = (currentBackground + 1) % backgrounds.length;
     setInterval(changeBackground, 10000);
 
-    // Highlight active navigation link
+    // Highlight active navigation link and navigate
     navLinks.forEach(link => {
-        link.addEventListener('click', (e) => {
-            e.preventDefault(); // For testing; remove in production
+        link.addEventListener('click', () => {
             navLinks.forEach(l => l.classList.remove('active'));
             link.classList.add('active');
-            // Uncomment in production: window.location.href = link.href;
+            window.location.href = link.href;
         });
     });
 
