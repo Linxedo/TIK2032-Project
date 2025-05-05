@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function changeBackground() {
         const nextLayer = activeLayer === bgLayer1 ? bgLayer2 : bgLayer1;
         nextLayer.style.backgroundImage = `url('${backgrounds[currentBackground]}')`;
-        nextLayer.style.opacity = '1';
+        nextLayer.style.opacity = '0.5';
         activeLayer.style.opacity = '0';
         activeLayer = nextLayer;
         currentBackground = (currentBackground + 1) % backgrounds.length;
@@ -34,7 +34,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Initialize first background
     bgLayer1.style.backgroundImage = `url('${backgrounds[currentBackground]}')`;
-    bgLayer1.style.opacity = '1';
+    bgLayer1.style.opacity = '0.5';
     bgLayer2.style.opacity = '0';
     currentBackground = (currentBackground + 1) % backgrounds.length;
     setInterval(changeBackground, 10000);
@@ -72,7 +72,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Load saved font
     const savedFont = localStorage.getItem('font');
     if (savedFont) {
-        body.style.fontFamily = `'${savedFont}', sans-serif`;
+        body.style.fontFamily = `'${savedFont}', sans-serif';
         fontSelector.value = savedFont;
     }
 
