@@ -1,95 +1,57 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Website</title>
-    <link rel="stylesheet" href="blog.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Website - Blog</title>
+    <link rel="stylesheet" href="index.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&family=Open+Sans&family=Lora&display=swap" rel="stylesheet" />
 </head>
 <body>
-
-    <table>
-        <tr>
-            <td><b>Steve</b></td>
-            <td align="right">
-                <a href="index.html">Home</a> |
-                <a href="gallery.html">Gallery</a> |
-                <a href="blog.html">Blog</a> |
-                <a href="contact.html">Contact</a>
-            </td>
-        </tr>
-    </table>
-    
-    <table>
-        <tr>
-            <td align="center">
-                <b>Artikel Blog</b>
-            </td>
-        </tr>
-    </table>
-    
-    <table width="80%" align="center" cellpadding="20" cellspacing="20" border="0">
-        <tr>
-            <td>
-                <div class="article-content">
-                    <h2>Artikel 1: Teknologi Terbaru</h2>
-                    <table width="100%" cellpadding="10" cellspacing="0">
-                        <tr>
-                            <td width="30%">
-                                <img src="https://via.placeholder.com/400x300" alt="Teknologi">
-                            </td>
-                            <td>
-                                <p>In Development</p>
-                                <p align="right"><a href="#">Baca selengkapnya &raquo;</a></p>
-                            </td>
-                        </tr>
-                    </table>
-                </div>
-            </td>
-        </tr>
-        
-        <tr>
-            <td>
-                <div class="article-content">
-                    <h2>Artikel 2: Tips Fotografi</h2>
-                    <table width="100%" cellpadding="10" cellspacing="0">
-                        <tr>
-                            <td width="30%">
-                                <img src="https://via.placeholder.com/400x300" alt="Fotografi">
-                            </td>
-                            <td>
-                                <p>In Development</p>
-                                <p align="right"><a href="#">Baca selengkapnya &raquo;</a></p>
-                            </td>
-                        </tr>
-                    </table>
-                </div>
-            </td>
-        </tr>
-        
-        <tr>
-            <td>
-                <div class="article-content">
-                    <h2>Artikel 3: Wisata Alam</h2>
-                    <table width="100%" cellpadding="10" cellspacing="0">
-                        <tr>
-                            <td width="30%">
-                                <img src="https://via.placeholder.com/400x300" alt="Wisata">
-                            </td>
-                            <td>
-                                <p>In Development</p>
-                                <p align="right"><a href="#">Baca selengkapnya &raquo;</a></p>
-                            </td>
-                        </tr>
-                    </table>
-                </div>
-            </td>
-        </tr>
-    </table>
-    
-    <div class="footer">
-        &copy; Steve 2025
+    <div class="background-container" id="background-container">
+        <div class="background-layer" id="bg-layer-1"></div>
+        <div class="background-layer" id="bg-layer-2"></div>
     </div>
+    <header class="header">
+        <div class="logo">
+            <h1>Steve</h1>
+        </div>
+        <nav class="nav">
+            <a href="index.html" class="nav-link">Home</a>
+            <a href="gallery.html" class="nav-link">Gallery</a>
+            <a href="#" class="nav-link active">Blog</a>
+            <a href="contact.html" class="nav-link">Contact</a>
+        </nav>
+        <div class="customization-controls">
+            <select id="font-selector" aria-label="Select font">
+                <option value="Roboto">Roboto</option>
+                <option value="Open Sans">Open Sans</option>
+                <option value="Lora">Lora</option>
+            </select>
+            <button class="theme-toggle" aria-label="Toggle dark mode">
+                <i class="fas fa-moon"></i>
+            </button>
+        </div>
+    </header>
+
+    <main class="main">
+        <section class="content">
+            <h2 class="blog-title">Artikel Terbaru</h2>
+            <div class="articles-container" id="articles-container">
+                <!-- Articles will be dynamically inserted here -->
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>© Steve 2025</p>
+        <div class="social-links">
+            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+            <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+        </div>
+    </footer>
 
     <script src="blog.js"></script>
 </body>
