@@ -1,30 +1,25 @@
 <?php
-$host = 'localhost';
-$dbname = 'Blog_db'; 
-$username = 'root'; 
-$password = ''; 
+// Konfigurasi database
+$host = "localhost";
+$user = "root";          // ganti jika user bukan root
+$password = "";          // ganti sesuai password MySQL kamu
+$dbname = "nama_database_kamu"; // ganti dengan nama database kamu
 
-try {
-    $pdo = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8", $username, $password);
-    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-} catch (PDOException $e) {
-    die("Connection failed: " . $e->getMessage());
+$conn = new mysqli($host, $user, $password, $dbname);
+
+if ($conn->connect_error) {
+    die("Koneksi gagal: " . $conn->connect_error);
 }
 
+$sql = "SELECT id, judul, isi, tanggal FROM artikel ORDER BY tanggal DESC";
+$result = $conn->query($sql);
 
-$stmt = $pdo->query("SELECT id, title, date, author, image, excerpt FROM articles ORDER BY date DESC");
-$articles = $stmt->fetchAll(PDO::FETCH_ASSOC);
+$artikel = [];
 
-
-foreach ($articles as $article) {
-    echo '<div class="article-card">';
-    echo '<img src="' . htmlspecialchars($article['image']) . '" alt="' . htmlspecialchars($article['title']) . '" class="article-image">';
-    echo '<div class="article-content">';
-    echo '<h3>' . htmlspecialchars($article['title']) . '</h3>';
-    echo '<div class="article-meta">Oleh ' . htmlspecialchars($article['author']) . ' | ' . htmlspecialchars($article['date']) . '</div>';
-    echo '<p>' . htmlspecialchars($article['excerpt']) . '</p>';
-    echo '<a href="article.php?id=' . $article['id'] . '" class="read-more">Baca Selengkapnya</a>';
-    echo '</div>';
-    echo '</div>';
+while($row = $result->fetch_assoc()) {
+    $artikel[] = $row;
 }
+
+header('Content-Type: application/json');
+echo json_encode($artikel);
 ?>
