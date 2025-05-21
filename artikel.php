@@ -3,7 +3,7 @@
 $host = "localhost";
 $user = "root";           // Ubah jika bukan root
 $password = "";           // Ubah sesuai password MySQL kamu
-$dbname = "nama_database_kamu"; // Ganti dengan nama database kamu
+$dbname = "website_db"; // Ganti dengan nama database kamu
 
 // Membuat koneksi
 $conn = new mysqli($host, $user, $password, $dbname);
