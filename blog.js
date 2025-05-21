@@ -74,7 +74,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Ambil data artikel dari database
     function fetchAndRenderArticles() {
-        fetch('artikel.php')
+        fetch('artikel.json')
             .then(response => {
                 if (!response.ok) {
                     throw new Error(`HTTP error! Status: ${response.status} ${response.statusText}`);
