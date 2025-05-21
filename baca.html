@@ -3,64 +3,81 @@
 <head>
     <meta charset="UTF-8">
     <title><?= htmlspecialchars($artikel['judul']) ?></title>
-    <link rel="stylesheet" href="baca.css">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="blog.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <!-- Tambahkan Font Awesome CDN agar ikon media sosial muncul -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
 </head>
 <body>
     <div class="background-container">
-        <div class="background-layer" style="background-image: url('https://source.unsplash.com/random/1920x1080?nature');"></div>
-    </div>
-    <header class="header">
-        <div class="logo">
-            <h1>Blog Saya</h1>
-        </div>
-        <nav class="nav">
-            <a href="blog.html" class="nav-link">Home</a>
-            <a href="#" class="nav-link">Kategori</a>
-            <a href="#" class="nav-link">Tentang</a>
-        </nav>
-    </header>
-    <div class="customization-controls">
-        <select id="font-selector">
-            <option value="Roboto">Roboto</option>
-            <option value="Arial">Arial</option>
-            <option value="Times New Roman">Times New Roman</option>
-        </select>
-        <button class="theme-toggle">🌙</button>
+        <div class="background-layer" id="bg-layer-1"></div>
+        <div class="background-layer" id="bg-layer-2"></div>
     </div>
     <main class="main">
         <div class="content">
-            <h2 class="blog-title"><?= htmlspecialchars($artikel['judul']) ?></h2>
             <div class="article-card">
-                <?php if (!empty($artikel['gambar'])): ?>
-                    <img src="<?= htmlspecialchars($artikel['gambar']) ?>" alt="<?= htmlspecialchars($artikel['judul']) ?>" class="article-image">
-                <?php endif; ?>
+                <h2 class="article-title"><?= htmlspecialchars($artikel['judul']) ?></h2>
+                <p class="article-subtitle">Isi artikel ini di bawah ini untuk membaca lebih lanjut. Artikel ini akan diupdate secara berkala.</p>
                 <div class="article-content">
-                    <h3><?= htmlspecialchars($artikel['judul']) ?></h3>
-                    <p class="article-meta"><strong>Tanggal:</strong> <?= htmlspecialchars($artikel['tanggal']) ?></p>
+                    <p><strong>Tanggal:</strong> <?= htmlspecialchars($artikel['tanggal']) ?></p>
+                    <?php if (!empty($artikel['gambar'])): ?>
+                        <img src="<?= htmlspecialchars($artikel['gambar']) ?>" alt="<?= htmlspecialchars($artikel['judul']) ?>" class="article-image">
+                    <?php endif; ?>
                     <p><?= nl2br(htmlspecialchars($artikel['isi'])) ?></p>
-                    <a href="blog.html" class="read-more">← Kembali ke Blog</a>
+                    <a href="blog.html" class="back-link">← Kembali ke Blog</a>
                 </div>
             </div>
         </div>
     </main>
     <footer class="footer">
-        <p>&copy; 2025 Blog Saya. All rights reserved.</p>
-        <div class="social-links">
-            <a href="#">📘</a>
-            <a href="#">🐦</a>
-            <a href="#">📷</a>
+        <div class="footer-content">
+            <p class="footer-copyright">© Steve 2025</p>
+            <div class="social-links">
+                <a href="#" aria-label="Instagram" class="social-icon"><i class="fab fa-instagram"></i></a>
+                <a href="#" aria-label="Twitter" class="social-icon"><i class="fab fa-twitter"></i></a>
+                <a href="#" aria-label="LinkedIn" class="social-icon"><i class="fab fa-linkedin"></i></a>
+            </div>
         </div>
     </footer>
     <script>
-        // Font selector
-        document.getElementById('font-selector').addEventListener('change', function() {
-            document.body.style.fontFamily = this.value;
-        });
+        document.addEventListener('DOMContentLoaded', () => {
+            const bgLayer1 = document.querySelector('#bg-layer-1');
+            const bgLayer2 = document.querySelector('#bg-layer-2');
 
-        // Theme toggle
-        document.querySelector('.theme-toggle').addEventListener('click', function() {
-            document.body.classList.toggle('dark-mode');
+            // Daftar gambar untuk slideshow
+            const backgrounds = [
+                'https://images.unsplash.com/photo-1504208434309-cb69f4fe52b0?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8ZG9nJTIwbGFuZHNjYXBlfGVufDB8fDB8fHww',
+                'https://images.unsplash.com/photo-1506104489822-562ca25152fe?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8NGslMjBuYXR1cmV8ZW58MHx8MHx8fDA%3D',
+                'https://images.unsplash.com/photo-1448518340475-e3c680e9b4be?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8bGFrZSUyMGxvdWlzZXxlbnwwfHwwfHx8MA%3D%3D'
+            ];
+
+            // Preload gambar untuk menghindari kedip
+            backgrounds.forEach(src => {
+                const img = new Image();
+                img.src = src;
+            });
+
+            let currentBackground = 0;
+            let activeLayer = bgLayer1;
+
+            // Fungsi untuk mengganti latar belakang
+            function changeBackground() {
+                const nextLayer = activeLayer === bgLayer1 ? bgLayer2 : bgLayer1;
+                nextLayer.style.backgroundImage = `url('${backgrounds[currentBackground]}')`;
+                nextLayer.style.opacity = '1';
+                activeLayer.style.opacity = '0';
+                activeLayer = nextLayer;
+                currentBackground = (currentBackground + 1) % backgrounds.length;
+            }
+
+            // Inisialisasi latar belakang pertama
+            bgLayer1.style.backgroundImage = `url('${backgrounds[currentBackground]}')`;
+            bgLayer1.style.opacity = '1';
+            bgLayer2.style.opacity = '0';
+            currentBackground = (currentBackground + 1) % backgrounds.length;
+
+            // Ganti latar belakang setiap 10 detik
+            setInterval(changeBackground, 10000);
         });
     </script>
 </body>
