@@ -103,7 +103,7 @@ document.addEventListener('DOMContentLoaded', () => {
                                 <h3>${article.judul}</h3>
                                 <div class="article-meta">Tanggal: ${article.tanggal}</div>
                                 <p>${article.isi.substring(0, 150)}...</p>
-                                <a href="article.html?id=${article.id}" class="read-more">Baca Selengkapnya</a>
+                                <a href="blog.html?id=${article.id}" class="read-more">Baca Selengkapnya</a>
                             </div>
                         `;
                         articlesContainer.appendChild(articleElement);
