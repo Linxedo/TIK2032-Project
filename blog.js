@@ -14,7 +14,6 @@ document.addEventListener('DOMContentLoaded', () => {
         'https://images.unsplash.com/photo-1448518340475-e3c680e9b4be?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8bGFrZSUyMGxvdWlzZXxlbnwwfHwwfHx8MA%3D%3D'
     ];
 
-    // Preload images to avoid delays
     backgrounds.forEach(src => {
         const img = new Image();
         img.src = src;
@@ -32,14 +31,12 @@ document.addEventListener('DOMContentLoaded', () => {
         currentBackground = (currentBackground + 1) % backgrounds.length;
     }
 
-    // Initialize first background
     bgLayer1.style.backgroundImage = `url('${backgrounds[currentBackground]}')`;
     bgLayer1.style.opacity = '1';
     bgLayer2.style.opacity = '0';
     currentBackground = (currentBackground + 1) % backgrounds.length;
     setInterval(changeBackground, 10000);
 
-    // Set active navigation link
     const currentPage = window.location.pathname.split('/').pop() || 'blog.html';
     navLinks.forEach(link => {
         const linkPage = link.getAttribute('href');
@@ -48,7 +45,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // Theme toggle
     themeToggle.addEventListener('click', () => {
         body.classList.toggle('dark-mode');
         const isDark = body.classList.contains('dark-mode');
@@ -56,72 +52,54 @@ document.addEventListener('DOMContentLoaded', () => {
         localStorage.setItem('theme', isDark ? 'dark' : 'light');
     });
 
-    // Load saved theme
     const savedTheme = localStorage.getItem('theme');
     if (savedTheme === 'dark') {
         body.classList.add('dark-mode');
         themeToggle.innerHTML = `<i class="fas fa-sun"></i>`;
     }
 
-    // Font selection
     fontSelector.addEventListener('change', (e) => {
         body.style.fontFamily = `'${e.target.value}', sans-serif`;
         localStorage.setItem('font', e.target.value);
     });
 
-    // Load saved font
     const savedFont = localStorage.getItem('font');
     if (savedFont) {
         body.style.fontFamily = `'${savedFont}', sans-serif`;
         fontSelector.value = savedFont;
     }
 
-    // Simulated database articles
-    const articles = [
-        {
-            id: 1,
-            title: 'Inovasi Terbaru dalam Teknologi AI',
-            date: '2025-05-01',
-            author: 'John Doe',
-            image: 'https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=compress&cs=tinysrgb&h=300',
-            excerpt: 'Kecerdasan buatan terus berkembang dengan inovasi seperti model bahasa generatif dan pembelajaran mesin yang lebih efisien. Artikel ini menjelaskan tren terbaru dan dampaknya pada industri.'
-        },
-        {
-            id: 2,
-            title: 'Seni Digital: Menggabungkan Kreativitas dan Teknologi',
-            date: '2025-04-28',
-            author: 'Jane Smith',
-            image: 'https://images.pexels.com/photos/3377405/pexels-photo-3377405.jpeg?auto=compress&cs=tinysrgb&h=300',
-            excerpt: 'Seni digital telah mengubah cara seniman mengekspresikan diri. Dari lukisan digital hingga NFT, pelajari bagaimana teknologi membentuk dunia seni modern.'
-        },
-        {
-            id: 3,
-            title: 'Strategi Latihan untuk Maraton Pertama Anda',
-            date: '2025-04-25',
-            author: 'Mike Johnson',
-            image: 'https://images.pexels.com/photos/1954524/pexels-photo-1954524.jpeg?auto=compress&cs=tinysrgb&h=300',
-            excerpt: 'Menyiapkan diri untuk maraton membutuhkan perencanaan dan dedikasi. Artikel ini memberikan panduan langkah demi langkah untuk pelari pemula.'
-        }
-    ];
+    // 🔥 AMBIL DATA DARI DATABASE
+    function fetchAndRenderArticles() {
+        fetch('get_artikel.php')
+            .then(response => response.json())
+            .then(data => {
+                articlesContainer.innerHTML = '';
+                if (data.length === 0) {
+                    articlesContainer.innerHTML = '<p>Tidak ada artikel tersedia.</p>';
+                    return;
+                }
 
-    // Render articles
-    function renderArticles() {
-        articlesContainer.innerHTML = '';
-        articles.forEach(article => {
-            const articleElement = document.createElement('div');
-            articleElement.classList.add('article-card');
-            articleElement.innerHTML = `
-                <img src="${article.image}" alt="${article.title}" class="article-image">
-                <div class="article-content">
-                    <h3>${article.title}</h3>
-                    <div class="article-meta">Oleh ${article.author} | ${article.date}</div>
-                    <p>${article.excerpt}</p>
-                    <a href="article.html?id=${article.id}" class="read-more">Baca Selengkapnya</a>
-                </div>
-            `;
-            articlesContainer.appendChild(articleElement);
-        });
+                data.forEach(article => {
+                    const articleElement = document.createElement('div');
+                    articleElement.classList.add('article-card');
+                    articleElement.innerHTML = `
+                        <img src="${article.gambar || 'default.jpg'}" alt="${article.judul}" class="article-image">
+                        <div class="article-content">
+                            <h3>${article.judul}</h3>
+                            <div class="article-meta">Tanggal: ${article.tanggal}</div>
+                            <p>${article.isi.substring(0, 150)}...</p>
+                            <a href="article.html?id=${article.id}" class="read-more">Baca Selengkapnya</a>
+                        </div>
+                    `;
+                    articlesContainer.appendChild(articleElement);
+                });
+            })
+            .catch(error => {
+                console.error('Gagal mengambil artikel:', error);
+                articlesContainer.innerHTML = '<p>Terjadi kesalahan saat memuat artikel.</p>';
+            });
     }
 
-    renderArticles();
+    fetchAndRenderArticles();
 });
