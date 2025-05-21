@@ -39,26 +39,7 @@ if ($result->num_rows === 0) {
 $artikel = $result->fetch_assoc();
 
 $conn->close();
-?>
 
-<!DOCTYPE html>
-<html lang="id">
-<head>
-    <meta charset="UTF-8">
-    <title><?= htmlspecialchars($artikel['judul']) ?></title>
-    <link rel="stylesheet" href="blog.css"> <!-- Ganti sesuai dengan CSS kamu -->
-</head>
-<body>
-    <div class="article-detail-container">
-        <h1><?= htmlspecialchars($artikel['judul']) ?></h1>
-        <p><strong>Tanggal:</strong> <?= htmlspecialchars($artikel['tanggal']) ?></p>
-        <?php if (!empty($artikel['gambar'])): ?>
-            <img src="<?= htmlspecialchars($artikel['gambar']) ?>" alt="<?= htmlspecialchars($artikel['judul']) ?>" style="max-width: 100%; height: auto;">
-        <?php endif; ?>
-        <div class="article-content">
-            <p><?= nl2br(htmlspecialchars($artikel['isi'])) ?></p>
-        </div>
-        <a href="blog.html">← Kembali ke Blog</a>
-    </div>
-</body>
-</html>
+// Include file HTML untuk tampilan
+include 'baca.html';
+?>
