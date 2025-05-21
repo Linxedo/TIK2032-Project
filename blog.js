@@ -74,22 +74,24 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Ambil data artikel dari database
     function fetchAndRenderArticles() {
-        fetch('artikel.php')
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error(`HTTP error! Status: ${response.status}`);
-                }
-                return response.json();
-            })
-            .then(data => {
-                console.log('Data dari artikel.php:', data); // Log untuk debug
+    fetch('artikel.php')
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`HTTP error! Status: ${response.status} ${response.statusText}`);
+            }
+            return response.text(); // Ambil sebagai teks untuk debug
+        })
+        .then(text => {
+            console.log('Respons mentah:', text); // Log respons mentah
+            try {
+                const data = JSON.parse(text); // Coba parse sebagai JSON
                 articlesContainer.innerHTML = '';
                 if (data.error) {
-                    articlesContainer.innerHTML = `<p>Error: ${data.error}</p>`;
+                    articlesContainer.innerHTML = `<p>Error dari server: ${data.error}</p>`;
                     return;
                 }
-                if (data.length === 0) {
-                    articlesContainer.innerHTML = '<p>Tidak ada artikel tersedia.</p>';
+                if (data.message && data.data.length === 0) {
+                    articlesContainer.innerHTML = `<p>${data.message}</p>`;
                     return;
                 }
                 data.forEach(article => {
@@ -106,12 +108,12 @@ document.addEventListener('DOMContentLoaded', () => {
                     `;
                     articlesContainer.appendChild(articleElement);
                 });
-            })
-            .catch(error => {
-                console.error('Gagal mengambil artikel:', error);
-                articlesContainer.innerHTML = `<p>Terjadi kesalahan saat memuat artikel: ${error.message}</p>`;
-            });
-    }
-
-    fetchAndRenderArticles();
-});
+            } catch (e) {
+                articlesContainer.innerHTML = `<p>Format data salah: ${e.message}<br>Respons: ${text}</p>`;
+            }
+        })
+        .catch(error => {
+            console.error('Gagal mengambil artikel:', error);
+            articlesContainer.innerHTML = `<p>Terjadi kesalahan saat memuat artikel: ${error.message}</p>`;
+        });
+}
