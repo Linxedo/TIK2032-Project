@@ -1,9 +1,13 @@
 <?php
+// Mengatur header JSON dan CORS (jika perlu)
+header('Content-Type: application/json');
+header('Access-Control-Allow-Origin: *'); // optional, kalau frontend di domain berbeda
+
 // Konfigurasi database
 $host = "localhost";
 $user = "root";           // Ubah jika bukan root
 $password = "";           // Ubah sesuai password MySQL kamu
-$dbname = "website_db"; // Ganti dengan nama database kamu
+$dbname = "website_db";   // Ganti dengan nama database kamu
 
 // Membuat koneksi
 $conn = new mysqli($host, $user, $password, $dbname);
@@ -11,7 +15,8 @@ $conn = new mysqli($host, $user, $password, $dbname);
 // Cek koneksi
 if ($conn->connect_error) {
     http_response_code(500);
-    die(json_encode(["error" => "Koneksi gagal: " . $conn->connect_error]));
+    echo json_encode(["error" => "Koneksi gagal: " . $conn->connect_error]);
+    exit;
 }
 
 // Query ambil data artikel
@@ -26,8 +31,7 @@ if ($result && $result->num_rows > 0) {
     }
 }
 
-// Mengatur header JSON
-header('Content-Type: application/json');
+// Output JSON
 echo json_encode($artikel);
 
 // Tutup koneksi
