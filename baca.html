@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title><?= htmlspecialchars($artikel['judul']) ?></title>
+    <link rel="stylesheet" href="baca.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="background-container">
+        <div class="background-layer" style="background-image: url('https://source.unsplash.com/random/1920x1080?nature');"></div>
+    </div>
+    <header class="header">
+        <div class="logo">
+            <h1>Blog Saya</h1>
+        </div>
+        <nav class="nav">
+            <a href="blog.html" class="nav-link">Home</a>
+            <a href="#" class="nav-link">Kategori</a>
+            <a href="#" class="nav-link">Tentang</a>
+        </nav>
+    </header>
+    <div class="customization-controls">
+        <select id="font-selector">
+            <option value="Roboto">Roboto</option>
+            <option value="Arial">Arial</option>
+            <option value="Times New Roman">Times New Roman</option>
+        </select>
+        <button class="theme-toggle">🌙</button>
+    </div>
+    <main class="main">
+        <div class="content">
+            <h2 class="blog-title"><?= htmlspecialchars($artikel['judul']) ?></h2>
+            <div class="article-card">
+                <?php if (!empty($artikel['gambar'])): ?>
+                    <img src="<?= htmlspecialchars($artikel['gambar']) ?>" alt="<?= htmlspecialchars($artikel['judul']) ?>" class="article-image">
+                <?php endif; ?>
+                <div class="article-content">
+                    <h3><?= htmlspecialchars($artikel['judul']) ?></h3>
+                    <p class="article-meta"><strong>Tanggal:</strong> <?= htmlspecialchars($artikel['tanggal']) ?></p>
+                    <p><?= nl2br(htmlspecialchars($artikel['isi'])) ?></p>
+                    <a href="blog.html" class="read-more">← Kembali ke Blog</a>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer class="footer">
+        <p>&copy; 2025 Blog Saya. All rights reserved.</p>
+        <div class="social-links">
+            <a href="#">📘</a>
+            <a href="#">🐦</a>
+            <a href="#">📷</a>
+        </div>
+    </footer>
+    <script>
+        // Font selector
+        document.getElementById('font-selector').addEventListener('change', function() {
+            document.body.style.fontFamily = this.value;
+        });
+
+        // Theme toggle
+        document.querySelector('.theme-toggle').addEventListener('click', function() {
+            document.body.classList.toggle('dark-mode');
+        });
+    </script>
+</body>
+</html>
