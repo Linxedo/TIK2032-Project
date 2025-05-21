@@ -73,50 +73,51 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Ambil data artikel dari database
-    function fetchAndRenderArticles() {
-        fetch('artikel.php')
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error(`HTTP error! Status: ${response.status} ${response.statusText}`);
+function fetchAndRenderArticles() {
+    fetch('artikel.php')
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`HTTP error! Status: ${response.status} ${response.statusText}`);
+            }
+            return response.text();
+        })
+        .then(text => {
+            console.log('Respons mentah:', text);
+            try {
+                const data = JSON.parse(text);
+                articlesContainer.innerHTML = '';
+                if (data.error) {
+                    articlesContainer.innerHTML = `<p>Error dari server: ${data.error}</p>`;
+                    return;
                 }
-                return response.text();
-            })
-            .then(text => {
-                console.log('Respons mentah:', text);
-                try {
-                    const data = JSON.parse(text);
-                    articlesContainer.innerHTML = '';
-                    if (data.error) {
-                        articlesContainer.innerHTML = `<p>Error dari server: ${data.error}</p>`;
-                        return;
-                    }
-                    if (data.message && data.data.length === 0) {
-                        articlesContainer.innerHTML = `<p>${data.message}</p>`;
-                        return;
-                    }
-                    data.forEach(article => {
-                        const articleElement = document.createElement('div');
-                        articleElement.classList.add('article-card');
-                        articleElement.innerHTML = `
-                            <img src="${article.gambar || 'default.jpg'}" alt="${article.judul}" class="article-image">
-                            <div class="article-content">
-                                <h3>${article.judul}</h3>
-                                <div class="article-meta">Tanggal: ${article.tanggal}</div>
-                                <p>${article.isi.substring(0, 150)}...</p>
-                                <a href="article.html?id=${article.id}" class="read-more">Baca Selengkapnya</a>
-                            </div>
-                        `;
-                        articlesContainer.appendChild(articleElement);
-                    });
-                } catch (e) {
-                    articlesContainer.innerHTML = `<p>Format data salah: ${e.message}<br>Respons: ${text}</p>`;
+                if (data.message && data.data.length === 0) {
+                    articlesContainer.innerHTML = `<p>${data.message}</p>`;
+                    return;
                 }
-            })
-            .catch(error => {
-                console.error('Gagal mengambil artikel:', error);
-                articlesContainer.innerHTML = `<p>Terjadi kesalahan saat memuat artikel: ${error.message}</p>`;
-            });
-    }
+                data.forEach(article => {
+                    const articleElement = document.createElement('div');
+                    articleElement.classList.add('article-card');
+                    articleElement.innerHTML = `
+                        <img src="${article.gambar || 'default.jpg'}" alt="${article.judul}" class="article-image">
+                        <div class="article-content">
+                            <h3>${article.judul}</h3>
+                            <div class="article-meta">Tanggal: ${article.tanggal}</div>
+                            <p>${article.isi.substring(0, 150)}...</p>
+                            <a href="article.html?id=${article.id}" class="read-more">Baca Selengkapnya</a>
+                        </div>
+                    `;
+                    articlesContainer.appendChild(articleElement);
+                });
+            } catch (e) {
+                articlesContainer.innerHTML = `<p>Format data salah: ${e.message}<br>Respons: ${text}</p>`;
+            }
+        })
+        .catch(error => {
+            console.error('Gagal mengambil artikel:', error);
+            articlesContainer.innerHTML = `<p>Terjadi kesalahan saat memuat artikel: ${error.message}</p>`;
+        });
+}
 
-    // ⬇️ Tambahkan ini agar fungsi dipanggil saat halaman dimuat
-    fetchAndRenderArticles();
+// ✅ Pastikan pemanggilan dilakukan setelah fungsi selesai
+fetchAndRenderArticles();
+
