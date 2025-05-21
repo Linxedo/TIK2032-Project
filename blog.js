@@ -37,6 +37,7 @@ document.addEventListener('DOMContentLoaded', () => {
     currentBackground = (currentBackground + 1) % backgrounds.length;
     setInterval(changeBackground, 10000);
 
+    // Navigasi aktif
     const currentPage = window.location.pathname.split('/').pop() || 'blog.html';
     navLinks.forEach(link => {
         const linkPage = link.getAttribute('href');
@@ -45,6 +46,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
+    // Toggle tema
     themeToggle.addEventListener('click', () => {
         body.classList.toggle('dark-mode');
         const isDark = body.classList.contains('dark-mode');
@@ -58,6 +60,7 @@ document.addEventListener('DOMContentLoaded', () => {
         themeToggle.innerHTML = `<i class="fas fa-sun"></i>`;
     }
 
+    // Pilih font
     fontSelector.addEventListener('change', (e) => {
         body.style.fontFamily = `'${e.target.value}', sans-serif`;
         localStorage.setItem('font', e.target.value);
@@ -69,17 +72,26 @@ document.addEventListener('DOMContentLoaded', () => {
         fontSelector.value = savedFont;
     }
 
-    // 🔥 AMBIL DATA DARI DATABASE
+    // Ambil data artikel dari database
     function fetchAndRenderArticles() {
         fetch('artikel.php')
-            .then(response => response.json())
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(`HTTP error! Status: ${response.status}`);
+                }
+                return response.json();
+            })
             .then(data => {
+                console.log('Data dari artikel.php:', data); // Log untuk debug
                 articlesContainer.innerHTML = '';
+                if (data.error) {
+                    articlesContainer.innerHTML = `<p>Error: ${data.error}</p>`;
+                    return;
+                }
                 if (data.length === 0) {
                     articlesContainer.innerHTML = '<p>Tidak ada artikel tersedia.</p>';
                     return;
                 }
-
                 data.forEach(article => {
                     const articleElement = document.createElement('div');
                     articleElement.classList.add('article-card');
@@ -97,7 +109,7 @@ document.addEventListener('DOMContentLoaded', () => {
             })
             .catch(error => {
                 console.error('Gagal mengambil artikel:', error);
-                articlesContainer.innerHTML = '<p>Terjadi kesalahan saat memuat artikel.</p>';
+                articlesContainer.innerHTML = `<p>Terjadi kesalahan saat memuat artikel: ${error.message}</p>`;
             });
     }
 
