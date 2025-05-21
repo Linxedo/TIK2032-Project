@@ -71,7 +71,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // 🔥 AMBIL DATA DARI DATABASE
     function fetchAndRenderArticles() {
-        fetch('get_artikel.php')
+        fetch('artikel.php')
             .then(response => response.json())
             .then(data => {
                 articlesContainer.innerHTML = '';
