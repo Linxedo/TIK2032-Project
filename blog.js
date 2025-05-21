@@ -68,7 +68,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const savedFont = localStorage.getItem('font');
     if (savedFont) {
-        body.style.fontFamily = `'${savedFont}', sans-serif';
+        body.style.fontFamily = `'${savedFont}', sans-serif`;
         fontSelector.value = savedFont;
     }
 
@@ -103,7 +103,7 @@ document.addEventListener('DOMContentLoaded', () => {
                                 <h3>${article.judul}</h3>
                                 <div class="article-meta">Tanggal: ${article.tanggal}</div>
                                 <p>${article.isi.substring(0, 150)}...</p>
-                                <a href="article.php?id=${article.id}" class="read-more">Baca Selengkapnya</a>
+                                <a href="article.html?id=${article.id}" class="read-more">Baca Selengkapnya</a>
                             </div>
                         `;
                         articlesContainer.appendChild(articleElement);
@@ -120,4 +120,4 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Panggil fungsi agar artikel ditampilkan saat halaman dimuat
     fetchAndRenderArticles();
-});
+});  // <-- **Jangan lupa ini, penutup document.addEventListener**
